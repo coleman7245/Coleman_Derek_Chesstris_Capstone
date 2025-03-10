@@ -1,0 +1,20 @@
+.homepage {
+    font: 8em 'Georgia';
+    text-align: center;
+    text-decoration: none solid red 2em;
+    color: black;
+    background-color: white;
+}
+
+.homepage img {
+    border: 10px double black;
+    size: 600px 600px;
+}
+
+.homepage button {
+    height: 75px;
+    width: 100px;
+    border: 10px double black;
+    background-color: white;
+    margin: 0 10px;
+}

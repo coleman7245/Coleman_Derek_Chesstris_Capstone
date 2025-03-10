@@ -9,7 +9,7 @@ function Board({width, height}) {
 
     return (
         <div className='board'>
-            squares
+            {squares}
         </div>
     )
 }
