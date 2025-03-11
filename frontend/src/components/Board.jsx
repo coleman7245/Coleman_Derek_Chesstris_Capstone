@@ -3,7 +3,9 @@ function Board({width, height}) {
 
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
-            squares.push(<div className='square'></div>);
+            const key = String(x * height + y);
+            console.log(key);
+            squares.push(<div className='square' key={key}></div>);
         }
     }
 

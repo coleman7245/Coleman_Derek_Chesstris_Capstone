@@ -3,7 +3,7 @@ import '../styles/Navbar.css';
 
 function Navbar() {
     return (
-        <div className='Navbar'>
+        <div className='navbar'>
             <Link to='/' style={{textDecoration: 'none'}}>
                 Home
             </Link>
@@ -16,7 +16,7 @@ function Navbar() {
             <Link to='/rules' style={{textDecoration: 'none'}}>
                 Rules
             </Link>
-            <Link to='/about' style={{textDectoration: 'none'}}>
+            <Link to='/about' style={{textDecoration: 'none'}}>
                 About
             </Link>
         </div>

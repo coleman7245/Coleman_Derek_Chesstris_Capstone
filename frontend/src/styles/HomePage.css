@@ -1,9 +1,13 @@
 .homepage {
     font: 8em 'Georgia';
     text-align: center;
-    text-decoration: none solid red 2em;
     color: black;
     background-color: white;
+    border: 10px double black;
+    border-radius: 10px;
+    height: 800px;
+    width: 1400px;
+    margin: 0 5%;
 }
 
 .homepage img {
@@ -12,9 +16,10 @@
 }
 
 .homepage button {
-    height: 75px;
-    width: 100px;
     border: 10px double black;
     background-color: white;
     margin: 0 10px;
+    padding: 2% 2%;
+    border-radius: 10px;
+    font-weight: bold;
 }

@@ -1,0 +1,13 @@
+.navbar {
+    background-color: white;
+    border: 10px double black;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.navbar a {
+    padding: 0.5% 0.5%;
+    border-right: 2px solid black;
+    color: black;
+    font-weight: bold;
+}
