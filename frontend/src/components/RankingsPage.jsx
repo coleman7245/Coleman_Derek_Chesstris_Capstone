@@ -1,10 +1,15 @@
 import '../styles/Rankings.css';
 
+import Navbar from './Navbar.jsx'
+
 function RankingsPage() {
     return (
-        <div>
-
-        </div>
+        <>
+            <Navbar />
+            <div className='rankingspage'>
+                Text Here.
+            </div>
+        </>
     );
 }
 

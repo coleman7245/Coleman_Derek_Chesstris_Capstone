@@ -1,10 +1,15 @@
 import '../styles/Rules.css';
 
+import Navbar from './Navbar.jsx';
+
 function RulesPage() {
     return (
-        <div>
-
-        </div>
+        <>
+            <Navbar />
+            <div className='rulespage'>
+                Text Here.
+            </div>
+        </>
     );
 }
 

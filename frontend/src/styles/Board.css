@@ -1,0 +1,16 @@
+.board {
+    overflow: hidden;
+    background-color: grey;
+    width: 25%;
+    height: 800px;
+    order: 1;
+}
+
+.square {
+    display: flexbox;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 25%;
+    order: 2;
+}
