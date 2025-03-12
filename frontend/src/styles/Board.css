@@ -1,9 +1,13 @@
 .board {
+    border: 10px solid white;
+    outline: 10px solid black;
+    position: absolute;
     overflow: hidden;
     background-color: grey;
-    width: 25%;
-    height: 800px;
-    order: 1;
+    width: 360px;
+    height: 600px;
+    margin-top: 3%;
+    margin-left: 5%;
 }
 
 .square {
@@ -12,5 +16,4 @@
     flex-wrap: wrap;
     width: 25%;
     height: 25%;
-    order: 2;
 }
