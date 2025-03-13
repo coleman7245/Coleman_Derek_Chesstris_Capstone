@@ -14,8 +14,8 @@ function handleGameState(gameState, action) {
 
     switch (action.type) {
         case 'FORM_INPUT':
-            console.log(action.event.target.value);
-            newGameState.player_name = action.event.target.value;
+            console.log(action.payload);
+            newGameState.player_name = action.payload;
             return newGameState;
         default:
             return gameState;
@@ -28,13 +28,13 @@ function GamePage() {
     return (
         <GameContext.Provider value={[gameState, dispatch]}>
             <Navbar />
-            {/* {gameState.player_name?  */}
+            {gameState.player_name? 
             <div className='gamepage'>
                 <Board width={20} height={20} />
                 <GameInfo score={0} time={'0:0:0'} playerName={'Derek'}/>
             </div> :
-            {/* <Form /> */}
-            // }
+            <Form />
+            }
         </GameContext.Provider>
     );
 }
