@@ -1,9 +1,9 @@
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import './styles/App.css';
 
 import HomePage from './components/HomePage.jsx';
-import GamePage from './components/GamePage.jsx';
+import { GamePage } from './components/GamePage.jsx';
 import RankingsPage from './components/RankingsPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import RulesPage from './components/RulesPage.jsx';

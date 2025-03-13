@@ -1,0 +1,9 @@
+.form {
+    border: 10px double black;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: 5%;
+}

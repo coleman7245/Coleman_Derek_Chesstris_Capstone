@@ -1,11 +1,17 @@
+import { useContext } from 'react';
+
+import { GameContext } from './GamePage.jsx';
+
 import '../styles/GameInfo.css';
 
-function GameInfo({score, time, playerName}) {
+function GameInfo() {
+    const [gameState, dispatch] = useContext(GameContext);
+
     return (
         <div className='gameinfo'>
-            Player: {playerName} <br />
-            Time: {time} <br />
-            Score: {score}
+            Player: {gameState.player_name} <br />
+            Time: {gameState.time.hours} : {gameState.time.minutes} : {gameState.time.seconds} <br />
+            Score: {gameState.score}
         </div>
     )
 }
