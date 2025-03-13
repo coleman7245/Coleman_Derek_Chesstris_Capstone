@@ -14,7 +14,6 @@ function handleGameState(gameState, action) {
 
     switch (action.type) {
         case 'FORM_INPUT':
-            console.log(action.payload);
             newGameState.player_name = action.payload;
             return newGameState;
         default:
