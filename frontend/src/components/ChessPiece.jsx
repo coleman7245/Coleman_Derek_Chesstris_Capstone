@@ -4,7 +4,7 @@ import '../styles/ChessPiece.css';
 
 function ChessPiece({source}) {
     const [pos, setPos] = useState([0, 0]);
-    const vel = 20;
+    const vel = 30;
 
     function handleInput(event) {
         // event.preventDefault();

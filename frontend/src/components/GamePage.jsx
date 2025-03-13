@@ -2,6 +2,8 @@ import { createContext, useReducer } from 'react';
 
 import '../styles/Game.css';
 
+import initialGameState from '../initialgamestate.js';
+
 import Navbar from './Navbar.jsx';
 import Board from './Board.jsx';
 import GameInfo from './GameInfo.jsx';
@@ -22,7 +24,7 @@ function handleGameState(gameState, action) {
 };
 
 function GamePage() {
-    const [gameState, dispatch] = useReducer(handleGameState, {player_name : '', time : {hours : 0, minutes: 0, seconds: 0}, score : 0});
+    const [gameState, dispatch] = useReducer(handleGameState, initialGameState);
 
     return (
         <GameContext.Provider value={[gameState, dispatch]}>

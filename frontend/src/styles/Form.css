@@ -6,4 +6,16 @@
     margin-top: 3%;
     margin-left: 3%;
     padding: 5%;
+    text-align: center;
+    font: 1em 'Arial';
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.form > button {
+    background-color: white;
+    font: 'Arial';
+    font-weight: bold;
+    border: 1px double black;
+    border-radius: 10px;
 }

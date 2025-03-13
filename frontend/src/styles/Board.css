@@ -9,11 +9,3 @@
     margin-top: 3%;
     margin-left: 5%;
 }
-
-.square {
-    display: flexbox;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 25%;
-    height: 25%;
-}
