@@ -3,7 +3,7 @@ import '../styles/Board.css';
 import black_bishop from '../assets/images/chess_black_bishop.png';
 import ChessPiece from './ChessPiece.jsx';
 
-function Board({width, height}) {
+function Board() {
 
     return (
         <div className='board'>
