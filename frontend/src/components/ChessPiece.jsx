@@ -1,10 +1,20 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 
 import '../styles/ChessPiece.css';
 
+import { GameContext } from './GamePage.jsx';
+
 function ChessPiece({source}) {
-    const [pos, setPos] = useState([0, 0]);
+    const [gameState, dispatch] = useContext(GameContext);
+    const [pos, setPos] = useState([150, -60]);
+    const posLimit = {minX: 0, minY: -60, maxX: gameState.board_size.width - 60, maxY: gameState.board_size.height - 120};
     const vel = 30;
+    
+    const chessPieceRef = useRef(null);
+
+    useEffect(() => {
+        chessPieceRef.current.focus();
+    }, []);
 
     function handleInput(event) {
         // event.preventDefault();
@@ -12,16 +22,16 @@ function ChessPiece({source}) {
 
         switch (event.key) {
             case 'w':
-                newPos[1] -= vel;
+                newPos[1] -= (newPos[1] - vel < posLimit.minY) ? 0 : vel;
                 break;
             case 'a':
-                newPos[0] -= vel;
+                newPos[0] -= (newPos[0] - vel < posLimit.minX) ? 0 : vel;
                 break;
             case 's':
-                newPos[1] += vel;
+                newPos[1] += (newPos[1] + vel > posLimit.maxY) ? 0 : vel;
                 break;
             case 'd':
-                newPos[0] += vel;
+                newPos[0] += (newPos[0] + vel > posLimit.maxX) ? 0 : vel;
                 break;
             default:
                 break;
@@ -31,49 +41,10 @@ function ChessPiece({source}) {
     }
 
     return (
-        <div className='chesspiece' style={{'left': `${pos[0]}px`, 'top': `${pos[1]}px`}} tabIndex='0' onKeyDown={(e) => handleInput(e)}>
+        <div ref={chessPieceRef} className='chesspiece' autoFocus style={{'left': `${pos[0]}px`, 'top': `${pos[1]}px`}} tabIndex='0' onKeyDown={(e) => handleInput(e)}>
             <img src={source} />
         </div>
     );
 }
-
-// function ChessPiece({source}) {
-//     const [state, setState] = useState({style : {}, pos : [0, 0]});
-//     const vel = 5;
-
-//     function handleInput(event) {
-//         // event.preventDefault();
-//         let newState = {...state};
-
-//         switch (event.key) {
-//             case 'w':
-//                 newState.pos[1] -= vel;
-//                 break;
-//             case 'a':
-//                 newState.pos[0] -= vel;
-//                 break;
-//             case 's':
-//                 newState.pos[1] += vel;
-//                 break;
-//             case 'd':
-//                 newState.pos[0] += vel;
-//                 break;
-//             default:
-//                 break;
-//         }
-
-//         newState.style = {'position': 'absolute', 'left': `${newState.pos[0]}px`, 'top': `${newState.pos[1]}px`};
-
-//         setState(newState);
-//     }
-
-//     console.log(state.pos);
-
-//     return (
-//         <div className='chesspiece' style={state.style} tabIndex='0' onKeyDown={(e) => handleInput(e)}>
-//             <img src={source} />
-//         </div>
-//     );
-// }
 
 export default ChessPiece;

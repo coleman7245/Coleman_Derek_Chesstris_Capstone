@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 
 import '../styles/Game.css';
 
@@ -25,6 +25,10 @@ function handleGameState(gameState, action) {
 
 function GamePage() {
     const [gameState, dispatch] = useReducer(handleGameState, initialGameState);
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <GameContext.Provider value={[gameState, dispatch]}>
