@@ -2,11 +2,22 @@ import express from 'express';
 
 import Player from '../models/Player.js';
 import Score from '../models/Score.js';
+import Time from '../models/Time.js';
 
 const router = express.Router();
 
-router.get('/game', async () => {
-
+router.post('/game', async (req, res) => {
+    try {
+        const player = await Player.create(req.body.player);
+        const score = await Score.create(req.body.score);
+        const time = await Time.creat(req.body.time);
+        console.log(player);
+        res.status(201).json(player)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
 });
 
 export default router;

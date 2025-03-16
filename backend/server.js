@@ -16,8 +16,8 @@ app.use(cors());
 
 app.use('/', HomeRoute);
 app.use('/game', GameRoute);
+app.use('/game/:id', GameRoute);
 app.use('/ranking', RankingRoute);
-app.use('/about', RulesRoute);
 
 app.listen(process.env.PORT, () => {
     console.log('Server is listening on port ' + process.env.PORT);
