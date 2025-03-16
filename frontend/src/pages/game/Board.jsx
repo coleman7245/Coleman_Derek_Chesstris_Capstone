@@ -1,6 +1,6 @@
 import './Board.css';
 
-import black_bishop from '../assets/images/chess_black_bishop.png';
+import black_bishop from '../../assets/images/chess_black_bishop.png';
 import ChessPiece from './ChessPiece.jsx';
 
 function Board() {

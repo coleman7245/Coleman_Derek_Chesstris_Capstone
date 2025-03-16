@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 
-import './styles/App.css';
+import './App.css';
 
-import HomePage from './components/HomePage.jsx';
-import { GamePage } from './components/GamePage.jsx';
-import RankingsPage from './components/RankingsPage.jsx';
-import AboutPage from './components/AboutPage.jsx';
-import RulesPage from './components/RulesPage.jsx';
+import HomePage from './pages/home/HomePage.jsx';
+import { GamePage } from './pages/game/GamePage.jsx';
+import RankingsPage from './pages/rankings/RankingsPage.jsx';
+import AboutPage from './pages/about/AboutPage.jsx';
+import RulesPage from './pages/rules/RulesPage.jsx';
 
 function App() {
 

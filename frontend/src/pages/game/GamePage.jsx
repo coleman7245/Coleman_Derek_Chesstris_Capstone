@@ -3,12 +3,12 @@ import { useNavigate, useNavigationType } from 'react-router-dom';
 
 import './GamePage.css';
 
-import {initialGameState, Game_Phase} from '../../gamestate.js';
+import {initialGameState, Game_Phase} from './gamestate.js';
 
-import Navbar from '../../components/Navbar.jsx';
-import Board from '../../components/Board.jsx';
-import GameInfo from '../../components/GameInfo.jsx';
-import Form from '../../components/Form.jsx';
+import Navbar from '../../shared_components/Navbar.jsx';
+import Board from './Board.jsx';
+import GameInfo from './GameInfo.jsx';
+import Form from './Form.jsx';
 
 const GameContext = createContext();
 
@@ -19,20 +19,22 @@ function handleGameState(gameState, action) {
         case 'FORM_INPUT':
             newGameState.player_name = action.payload;
             newGameState.startTime = Date.now();
-            return newGameState;
+            break;
         case 'UPDATE_TIME':
             newGameState.finishTime = getTime(newGameState.startTime);
-            return newGameState;
+            break;
         case 'CHECK_GAME_PHASE':
             console.log(action.payload);
             if (action.payload)
                 newGameState.score += 1;
             console.log(newGameState.score);
-            newGameState.current_phase = checkGamePhase(gameState);
-            return newGameState;
+            break;
         default:
-            return gameState;
+            break;
     }
+
+    newGameState.current_phase = checkGamePhase(gameState);
+    return newGameState;
 }
 
 function checkGamePhase(gameState) {

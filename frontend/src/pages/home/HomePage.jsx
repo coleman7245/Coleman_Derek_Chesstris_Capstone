@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import './HomePage.css';
 
-import home_pic from '../assets/images/chess_homepage_image.jpg';
+import home_pic from '../../assets/images/chess_homepage_image.jpg';
 
 function HomePage() {
     return (
