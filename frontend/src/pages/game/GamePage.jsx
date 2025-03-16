@@ -1,7 +1,7 @@
 import { createContext, useReducer, useEffect } from 'react';
 import { useNavigate, useNavigationType } from 'react-router-dom';
 
-import '../styles/Game.css';
+import './GamePage.css';
 
 import {initialGameState, Game_Phase} from '../../gamestate.js';
 

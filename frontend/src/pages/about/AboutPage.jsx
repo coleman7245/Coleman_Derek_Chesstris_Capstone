@@ -1,4 +1,4 @@
-import '../styles/About.css';
+import './AboutPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx';
 

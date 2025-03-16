@@ -1,4 +1,4 @@
-import '../styles/Rules.css';
+import './RulesPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx';
 

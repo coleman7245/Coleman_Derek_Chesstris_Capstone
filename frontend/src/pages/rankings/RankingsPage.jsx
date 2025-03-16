@@ -1,4 +1,4 @@
-import '../styles/Rankings.css';
+import './RankingsPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx'
 

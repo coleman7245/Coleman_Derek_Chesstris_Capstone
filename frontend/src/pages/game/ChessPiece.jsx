@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 
-import '../styles/ChessPiece.css';
+import './ChessPiece.css';
 
 import { GameContext } from './GamePage.js';
 

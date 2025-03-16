@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import '../styles/HomePage.css';
+import './HomePage.css';
 
 import home_pic from '../assets/images/chess_homepage_image.jpg';
 

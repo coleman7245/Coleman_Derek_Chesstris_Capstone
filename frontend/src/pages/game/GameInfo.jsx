@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { GameContext } from './GamePage.jsx';
 
-import '../styles/GameInfo.css';
+import './GameInfo.css';
 
 function GameInfo() {
     const [gameState, dispatch] = useContext(GameContext);
