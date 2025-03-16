@@ -22,13 +22,25 @@ function handleGameState(gameState, action) {
         case 'UPDATE_TIME':
             newGameState.finishTime = getTime(newGameState.startTime);
             return newGameState;
+        case 'CHECK_GAME_PHASE':
+            console.log(action.payload);
+            if (action.payload)
+                newGameState.score += 1;
+            console.log(newGameState.score);
+            newGameState.current_phase = checkGamePhase(gameState);
+            return newGameState;
         default:
             return gameState;
     }
 }
 
-function checkGamePhase(gameState, winState) {
-
+function checkGamePhase(gameState) {
+    if (gameState.score >= gameState.win_state.win_score)
+        return Game_Phase.WIN;
+    else if (gameState.crossed_finish_line)
+        return Game_Phase.LOSE
+    else
+        return Game_Phase.PLAYING;
 }
 
 function getTime(startTime) {

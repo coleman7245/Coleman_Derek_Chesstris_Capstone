@@ -19,24 +19,31 @@ function ChessPiece({source}) {
     function handleInput(event) {
         // event.preventDefault();
         let newPos = [...pos];
+        let hasScored = false;
 
         switch (event.key) {
             case 'w':
                 newPos[1] -= (newPos[1] - vel < posLimit.minY) ? 0 : vel;
+                hasScored = true;
                 break;
             case 'a':
                 newPos[0] -= (newPos[0] - vel < posLimit.minX) ? 0 : vel;
+                hasScored = true;
                 break;
             case 's':
                 newPos[1] += (newPos[1] + vel > posLimit.maxY) ? 0 : vel;
+                hasScored = true;
                 break;
             case 'd':
                 newPos[0] += (newPos[0] + vel > posLimit.maxX) ? 0 : vel;
+                hasScored = true;
                 break;
             default:
+                hasScored = false;
                 break;
         }
 
+        dispatch({type : 'CHECK_GAME_PHASE', payload : hasScored});
         setPos(newPos);
     }
 
