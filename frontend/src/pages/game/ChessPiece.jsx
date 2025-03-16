@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext } from 'react';
 
 import '../styles/ChessPiece.css';
 
-import { GameContext } from './GamePage.jsx';
+import { GameContext } from './GamePage.js';
 
 function ChessPiece({source}) {
     const [gameState, dispatch] = useContext(GameContext);

@@ -1,13 +1,14 @@
 import { createContext, useReducer, useEffect } from 'react';
+import { useNavigate, useNavigationType } from 'react-router-dom';
 
 import '../styles/Game.css';
 
-import {initialGameState, Game_Phase} from '../gamestate.js';
+import {initialGameState, Game_Phase} from '../../gamestate.js';
 
-import Navbar from './Navbar.jsx';
-import Board from './Board.jsx';
-import GameInfo from './GameInfo.jsx';
-import Form from './Form.jsx';
+import Navbar from '../../components/Navbar.jsx';
+import Board from '../../components/Board.jsx';
+import GameInfo from '../../components/GameInfo.jsx';
+import Form from '../../components/Form.jsx';
 
 const GameContext = createContext();
 
@@ -61,6 +62,7 @@ function getTime(startTime) {
 
 function GamePage() {
     const [gameState, dispatch] = useReducer(handleGameState, initialGameState);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const timeElapsed = setInterval(() => {

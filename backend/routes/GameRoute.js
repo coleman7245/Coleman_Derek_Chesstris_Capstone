@@ -12,7 +12,11 @@ router.post('/game', async (req, res) => {
         const score = await Score.create(req.body.score);
         const time = await Time.creat(req.body.time);
         console.log(player);
-        res.status(201).json(player)
+        console.log(score);
+        console.log(time);
+        res.status(201).json(player);
+        res.status(201).json(score);
+        res.status(201).json(time);
     }
     catch (err) {
         console.log(err);

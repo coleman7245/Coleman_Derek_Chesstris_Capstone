@@ -1,6 +1,6 @@
 import '../styles/Rules.css';
 
-import Navbar from './Navbar.jsx';
+import Navbar from '../../shared_components/Navbar.jsx';
 
 function RulesPage() {
     return (
