@@ -3,12 +3,14 @@ import './ResultPage.css';
 import Navbar from '../../shared_components/Navbar.jsx';
 import ContinueBox from '../../shared_components/ContinueBox.jsx';
 
-function ResultPage() {
+function ResultPage({message}) {
     return (
-        <div className='resultpage'>
+        <>
             <Navbar />
-            <ContinueBox message='You win!'/>
-        </div>
+            <div className='resultpage'>
+                <ContinueBox message={message}/>
+            </div>
+        </>
     )
 }
 

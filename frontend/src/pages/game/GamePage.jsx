@@ -66,7 +66,6 @@ function GamePage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('Entered useEffect!');
         if (gameState.current_phase === Game_Phase.WON) {
             console.log('Win!');
             const timeout = setTimeout(() => navigate('/win'), 0);
@@ -91,7 +90,9 @@ function GamePage() {
                 <Board />
                 <GameInfo />
             </div> :
-            <Form />
+            <div className='formpage'>
+                <Form />
+            </div>
             }
         </GameContext.Provider>
     );

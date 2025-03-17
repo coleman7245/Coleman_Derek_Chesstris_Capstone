@@ -15,7 +15,7 @@ function ContinueBox({message}) {
     return (
         <div className='continue-box'>
             {message} Continue? <br />
-            <button id='yes' onClick={(e) => handleContinue(e)}>Yes</button> <br />
+            <button id='yes' onClick={(e) => handleContinue(e)}>Yes</button>
             <button id='no' onClick={(e) => handleContinue(e)}>No</button>
         </div>
     )
