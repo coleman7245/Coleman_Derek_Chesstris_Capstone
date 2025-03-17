@@ -45,13 +45,14 @@ function checkGamePhase(gameState) {
         return Game_Phase.WON;
     else if (gameState.crossed_finish_line)
         return Game_Phase.LOST;
-    else
+    else if (gameState.player_name)
         return Game_Phase.PLAYING;
+    else
+        return Game_Phase.NOT_RUNNING;
 }
 
 function getTime(startTime) {
     let currentTime = Date.now() - startTime;
-
     let seconds = currentTime / 1000;
     let minutes = seconds / 60;
     let hours = minutes / 60;
@@ -71,12 +72,10 @@ function GamePage() {
 
     useEffect(() => {
         if (gameState.current_phase === Game_Phase.WON) {
-            console.log('Win!');
             const timeout = setTimeout(() => navigate('/win'), 0);
             return () => clearInterval(timeout);
          }
         else if (gameState.current_phase === Game_Phase.LOST) {
-            console.log('Lose!');
             const timeout = setTimeout(() => navigate('/lose'), 0);
             return () => clearInterval(timeout);
         }

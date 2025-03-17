@@ -26,6 +26,12 @@
     padding: 1%;
 }
 
+#pause-btn:focus {
+    color: white;
+    background-color: black;
+    border: 5px solid white;
+}
+
 .formpage {
     border-bottom: 10px double black;
     border-right: 10px double black;

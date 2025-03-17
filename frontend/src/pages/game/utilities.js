@@ -1,7 +1,9 @@
 const Game_Phase = {
     PLAYING : 'PLAYING',
     LOST: 'LOST',
-    WON: 'WON'
+    WON: 'WON',
+    NOT_RUNNING : 'NOT_RUNNING',
+    PAUSED : 'PAUSED'
 } 
 
 const initialGameState = {
@@ -13,12 +15,13 @@ const initialGameState = {
         width: 360,
         height: 600
     },
-    current_phase : Game_Phase.PLAYING,
+    current_phase : Game_Phase.NOT_RUNNING,
     crossed_finish_line : false,
     win_state : {
         win_pos_y : 480,
         win_score : 18
-    }
+    },
+    isPaused : false
 }
 
 async function getCurrentGame(dispatch) {
