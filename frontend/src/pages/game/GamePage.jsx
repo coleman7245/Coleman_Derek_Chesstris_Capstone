@@ -1,5 +1,5 @@
 import { createContext, useReducer, useEffect } from 'react';
-import { useNavigate, useNavigationType } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './GamePage.css';
 
@@ -23,11 +23,10 @@ function handleGameState(gameState, action) {
         case 'UPDATE_TIME':
             newGameState.finishTime = getTime(newGameState.startTime);
             break;
-        case 'CHECK_GAME_PHASE':
-            console.log(action.payload);
-            if (action.payload)
+        case 'CHANGE_SCORE':
+            if (action.hasScored)
                 newGameState.score += 1;
-            console.log(newGameState.score);
+            gameState.crossed_finish_line = action.crossedFinishLine;
             break;
         default:
             break;
@@ -38,10 +37,10 @@ function handleGameState(gameState, action) {
 }
 
 function checkGamePhase(gameState) {
-    if (gameState.score >= gameState.win_state.win_score)
-        return Game_Phase.WIN;
+    if (gameState.score <= gameState.win_state.win_score && gameState.crossed_finish_line)
+        return Game_Phase.WON;
     else if (gameState.crossed_finish_line)
-        return Game_Phase.LOSE
+        return Game_Phase.LOST;
     else
         return Game_Phase.PLAYING;
 }
@@ -67,11 +66,22 @@ function GamePage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timeElapsed = setInterval(() => {
-            dispatch({type : 'UPDATE_TIME'});
-        }, 1000);
-        return () => clearInterval(timeElapsed);
-    }, []);
+        console.log('Entered useEffect!');
+        if (gameState.current_phase === Game_Phase.WON) {
+            console.log('Win!');
+            const timeout = setTimeout(() => navigate('/win'), 0);
+            return () => clearInterval(timeout);
+         }
+        else if (gameState.current_phase === Game_Phase.LOST) {
+            console.log('Lose!');
+            const timeout = setTimeout(() => navigate('/lose'), 0);
+            return () => clearInterval(timeout);
+        }
+        else {
+            const timeElapsed = setInterval(() => {dispatch({type : 'UPDATE_TIME'});}, 1000);
+            return () => clearInterval(timeElapsed);
+        }
+    }, [gameState.current_phase, navigate, dispatch]);
 
     return (
         <GameContext.Provider value={[gameState, dispatch]}>

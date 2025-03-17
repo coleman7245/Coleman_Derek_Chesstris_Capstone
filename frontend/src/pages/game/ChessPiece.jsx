@@ -20,6 +20,7 @@ function ChessPiece({source}) {
         // event.preventDefault();
         let newPos = [...pos];
         let hasScored = false;
+        let crossedFinishLine = false;
 
         switch (event.key) {
             case 'w':
@@ -43,7 +44,8 @@ function ChessPiece({source}) {
                 break;
         }
 
-        dispatch({type : 'CHECK_GAME_PHASE', payload : hasScored});
+        crossedFinishLine = newPos[1] >= gameState.win_state.win_pos_y ? true : false;
+        dispatch({type : 'CHANGE_SCORE', hasScored : hasScored, crossedFinishLine : crossedFinishLine});
         setPos(newPos);
     }
 

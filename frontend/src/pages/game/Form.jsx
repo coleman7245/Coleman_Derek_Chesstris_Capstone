@@ -16,7 +16,7 @@ function Form() {
     return (
         <form className='form' id='player-form' onSubmit={(e) => handleSubmission(e, dispatch, input)}>
             Enter your name <br /> <br />
-            <input type='text' placeholder='Name' onChange={(e) => setInput(e.target.value)} value={input}/> <br /> <br />
+            <input id='name-field' type='text' placeholder='Name' onChange={(e) => setInput(e.target.value)} value={input}/> <br /> <br />
             <button htmlFor='player-form'>Submit</button>
         </form>
     )

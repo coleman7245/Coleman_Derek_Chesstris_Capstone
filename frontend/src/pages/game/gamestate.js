@@ -1,7 +1,7 @@
 const Game_Phase = {
-    PLAYING : 1,
-    LOST: 2,
-    WON: 3
+    PLAYING : 'PLAYING',
+    LOST: 'LOST',
+    WON: 'WON'
 } 
 
 const initialGameState = {
@@ -14,8 +14,9 @@ const initialGameState = {
         height: 600
     },
     current_phase : Game_Phase.PLAYING,
-    crossed_finish_line : true,
+    crossed_finish_line : false,
     win_state : {
+        win_pos_y : 480,
         win_score : 18
     }
 }
