@@ -9,7 +9,21 @@
     border-radius: 10px;
     height: 800px;
     width: 1487px;
-    display: flex;
+    position: absolute;
+}
+
+#pause-btn {
+    background-color: white;
+    font: 'Georgia';
+    font-weight: bold;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 310px;
+    left: 775px;
+    padding: 1%;
 }
 
 .formpage {

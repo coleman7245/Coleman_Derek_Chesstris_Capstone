@@ -22,3 +22,8 @@
     margin-left: 1%;
     margin-right: 1%;
 }
+
+.continue-box > button:focus {
+    color: white;
+    background-color: black;
+}

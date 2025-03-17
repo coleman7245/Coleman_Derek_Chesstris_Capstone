@@ -11,3 +11,8 @@
     color: black;
     font-weight: bold;
 }
+
+.navbar a:hover {
+    color: white;
+    background-color: black;
+}
