@@ -1,15 +1,15 @@
-import './WinPage.css';
+import './ResultPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx';
 import ContinueBox from '../../shared_components/ContinueBox.jsx';
 
-function WinPage() {
+function ResultPage() {
     return (
-        <div className='winpage'>
+        <div className='resultpage'>
             <Navbar />
             <ContinueBox message='You win!'/>
         </div>
     )
 }
 
-export default WinPage;
+export default ResultPage;

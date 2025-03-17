@@ -1,3 +1,10 @@
 .continue-box {
-    
+    font: 4em 'Georgia';
+    text-align: center;
+    color: black;
+    background-color: white;
+    border-bottom: 10px double black;
+    border-right: 10px double black;
+    border-left: 10px double black;
+    border-radius: 10px;
 }
