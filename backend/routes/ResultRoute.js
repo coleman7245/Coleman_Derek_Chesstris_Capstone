@@ -2,7 +2,7 @@ import express from 'express';
 
 import Player from '../models/Player.js';
 import Score from '../models/Score.js';
-import Time from '../modles/Time.js';
+import Time from '../models/Time.js';
 
 const router = express.Router();
 
@@ -14,9 +14,7 @@ router.post('/win', async (req, res) => {
         console.log(player);
         console.log(score);
         console.log(time);
-        res.status(200).json(player);
-        res.status(200).json(score);
-        res.status(200).json(time);
+        res.status(200).json({player, score, time});
     }
     catch (err) {
         console.log(err);

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './GamePage.css';
 
-import {initialGameState, Game_Phase } from './utilities.js';
+import {initialGameState, Game_Phase } from '../../utilities.js';
 
 import Navbar from '../../shared_components/Navbar.jsx';
 import Board from './Board.jsx';
@@ -68,11 +68,11 @@ function GamePage() {
 
     useEffect(() => {
         if (gameState.current_phase === Game_Phase.WON) {
-            const timeout = setTimeout(() => navigate('/win', {gameState : gameState}), 0);
+            const timeout = setTimeout(() => navigate('/win', {state : gameState}), 0);
             return () => clearInterval(timeout);
          }
         else if (gameState.current_phase === Game_Phase.LOST) {
-            const timeout = setTimeout(() => navigate('/lose', {gameState : gameState}), 0);
+            const timeout = setTimeout(() => navigate('/lose', {state : gameState}), 0);
             return () => clearInterval(timeout);
         }
         else if (gameState.current_phase === Game_Phase.PLAYING) {

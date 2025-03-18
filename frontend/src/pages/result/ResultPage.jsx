@@ -7,14 +7,14 @@ import ContinueBox from './ContinueBox.jsx';
 import SaveBox from './SaveBox.jsx';
 
 function ResultPage({message}) {
-    const gameState = useLocation();
+    const locationState = useLocation();
 
     return (
         <>
             <Navbar />
             <div className='resultpage'>
                 <ContinueBox message={message}/>
-                <SaveBox gameState={gameState} />
+                <SaveBox locationState={locationState} />
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import './ChessPiece.css';
 
 import { GameContext } from './GamePage.jsx';
 
-import { Game_Phase } from './utilities.js';
+import { Game_Phase } from '../../utilities.js';
 
 function ChessPiece({source}) {
     const [gameState, dispatch] = useContext(GameContext);
