@@ -1,7 +1,8 @@
 import './ResultPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx';
-import ContinueBox from '../../shared_components/ContinueBox.jsx';
+import ContinueBox from './ContinueBox.jsx';
+import SaveBox from './SaveBox.jsx';
 
 function ResultPage({message}) {
     return (
@@ -9,6 +10,7 @@ function ResultPage({message}) {
             <Navbar />
             <div className='resultpage'>
                 <ContinueBox message={message}/>
+                <SaveBox />
             </div>
         </>
     )
