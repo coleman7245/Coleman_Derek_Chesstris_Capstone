@@ -68,11 +68,11 @@ function GamePage() {
 
     useEffect(() => {
         if (gameState.current_phase === Game_Phase.WON) {
-            const timeout = setTimeout(() => navigate('/win'), 0);
+            const timeout = setTimeout(() => navigate('/win', {gameState : gameState}), 0);
             return () => clearInterval(timeout);
          }
         else if (gameState.current_phase === Game_Phase.LOST) {
-            const timeout = setTimeout(() => navigate('/lose'), 0);
+            const timeout = setTimeout(() => navigate('/lose', {gameState : gameState}), 0);
             return () => clearInterval(timeout);
         }
         else if (gameState.current_phase === Game_Phase.PLAYING) {
