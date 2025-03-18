@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './GamePage.css';
 
-import {initialGameState, Game_Phase} from './utilities.js';
+import {initialGameState, Game_Phase } from './utilities.js';
 
 import Navbar from '../../shared_components/Navbar.jsx';
 import Board from './Board.jsx';
@@ -26,7 +26,7 @@ function handleGameState(gameState, action) {
         case 'CHANGE_SCORE':
             if (action.hasScored)
                 newGameState.score += 1;
-            gameState.crossed_finish_line = action.crossedFinishLine;
+            newGameState.crossed_finish_line = action.crossedFinishLine;
             break;
         default:
             break;
@@ -34,10 +34,6 @@ function handleGameState(gameState, action) {
 
     newGameState.current_phase = checkGamePhase(gameState);
     return newGameState;
-}
-
-function handlePause(e) {
-    
 }
 
 function checkGamePhase(gameState) {
@@ -79,7 +75,7 @@ function GamePage() {
             const timeout = setTimeout(() => navigate('/lose'), 0);
             return () => clearInterval(timeout);
         }
-        else {
+        else if (gameState.current_phase === Game_Phase.PLAYING) {
             const timeElapsed = setInterval(() => {dispatch({type : 'UPDATE_TIME'});}, 1000);
             return () => clearInterval(timeElapsed);
         }
@@ -92,7 +88,7 @@ function GamePage() {
             <div className='gamepage'>
                 <Board />
                 <GameInfo />
-                <button id='pause-btn' onClick={(e) => handlePause(e)} >Pause</button>
+                <button id='pause-btn' onClick={() => dispatch({type : 'PAUSED'})} >Pause</button>
             </div> :
             <div className='formpage'>
                 <Form />
