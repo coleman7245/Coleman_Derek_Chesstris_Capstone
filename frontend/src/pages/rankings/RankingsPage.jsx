@@ -28,6 +28,9 @@ function RankingsPage() {
         <>
             <Navbar />
             <div className='rankingspage'>
+                <button id='score-rankings-btn'>Scores</button>
+                <button id='player-rankings-btn'>Players</button>
+                <button id='time-rankings-btn'>Times</button>
                 <RankingsList name='Scores' scores={scores}/>
             </div>
         </>
