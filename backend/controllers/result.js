@@ -4,7 +4,6 @@ import Time from '../models/Time.js';
 
 async function postPlayerData(req, res) {
     try {
-        console.log("req.n",req.body)
         const player = await Player.create(req.body.player);
         const score = await Score.create(req.body.score);
         const time = await Time.create(req.body.time);

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './ContinueBox.css';
 
-function ContinueBox({message}) {
+function ContinueBox({message, gameState}) {
     const navigate = useNavigate();
 
     function handleContinue(e) {
@@ -14,7 +14,11 @@ function ContinueBox({message}) {
 
     return (
         <div className='continue-box'>
-            {message} Continue? <br />
+            {message} <br /> <br />
+            Player: {gameState.player_name} <br />
+            Time: {gameState.finishTime.hours} : {gameState.finishTime.minutes} : {gameState.finishTime.seconds} <br />
+            Score: {gameState.score} <br /> <br />
+            Continue? <br />
             <button id='yes' onClick={(e) => handleContinue(e)}>Yes</button>
             <button id='no' onClick={(e) => handleContinue(e)}>No</button>
         </div>

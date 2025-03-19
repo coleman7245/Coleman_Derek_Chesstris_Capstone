@@ -13,7 +13,7 @@ function ResultPage({message}) {
         <>
             <Navbar />
             <div className='resultpage'>
-                <ContinueBox message={message}/>
+                <ContinueBox message={message} gameState={locationState.state}/>
                 <SaveBox locationState={locationState} />
             </div>
         </>

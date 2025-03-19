@@ -6,14 +6,14 @@ function SaveBox({locationState}) {
     const [isSaved, setIsSaved] = useState(false);
     const gameState = locationState.state;
 
-    async function handleSave(route) {
-        try {
-            const data = {
-                player : {player_name : gameState.player_name},
-                score : {player_name : gameState.player_name, score : gameState.score},
-                time : {player_name : gameState.player_name, time : gameState.finishTime}
-            };
+    const data = {
+        player : {player_name : gameState.player_name},
+        score : {player_name : gameState.player_name, score : gameState.score},
+        time : {player_name : gameState.player_name, time : gameState.finishTime}
+    };
 
+    async function handleSave(route, data) {
+        try {
             const response = await fetch(route, 
                 {
                     method : 'POST',
