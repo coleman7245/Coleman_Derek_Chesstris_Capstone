@@ -9,8 +9,9 @@ function RankingsPage() {
 
     async function getScores() {
         try {
-            const response = await fetch('/rankings');
+            const response = await fetch(`http://localhost:8080/rankings`);
             const scores = await response.json();
+            console.log(scores);
             setScores(scores);
         }
         catch(err) {
@@ -26,9 +27,9 @@ function RankingsPage() {
         <>
             <Navbar />
             <ol className='rankingspage'>
-                {scores.map((score, i) => {
+                {(scores) ? scores.map((score, i) => {
                     <li className='score' key={i}>{score.score + ' : ' + score.player_name}</li>
-                })}
+                }) : null}
             </ol>
         </>
     );

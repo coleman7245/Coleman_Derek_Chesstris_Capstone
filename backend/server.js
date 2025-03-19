@@ -4,7 +4,7 @@ import cors from 'cors';
 
 import connectDB from './db.js';
 
-import RankingRoute from './routes/RankingRoute.js';
+import RankingRoute from './routes/RankingsRoute.js';
 import ResultRoute from './routes/ResultRoute.js';
 
 const app = express();
@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/ranking', RankingRoute);
+app.use('/rankings', RankingRoute);
 app.use('/win', ResultRoute);
 app.use('/lose', ResultRoute);
 
