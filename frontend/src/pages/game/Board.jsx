@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import './Board.css';
 
 import { chess_piece_images } from '../../utilities.js';
@@ -11,11 +13,13 @@ function getRandomChessPiece(chessPieceImages) {
 }
 
 function Board() {
+    const [source, getSource] = useState(chess_piece_images[getRandomChessPiece(chess_piece_images)]);
+
     return (
         <div className='board'>
-            <ChessPiece source={chess_piece_images[getRandomChessPiece(chess_piece_images)]} />
+            <ChessPiece source={source} />
         </div>
     )
 }
 
-export default Board
+export default Board;
