@@ -14,7 +14,7 @@ router.post('/win', async (req, res) => {
         console.log(player);
         console.log(score);
         console.log(time);
-        res.status(200).json({player, score, time});
+        res.status(201).json({player, score, time});
     }
     catch (err) {
         console.log(err);
@@ -30,9 +30,7 @@ router.post('/lose', async (req, res) => {
         console.log(player);
         console.log(score);
         console.log(time);
-        res.status(200).json(player);
-        res.status(200).json(score);
-        res.status(200).json(time);
+        res.status(201).json({player, score, time});
     }
     catch (err) {
         console.log(err);
