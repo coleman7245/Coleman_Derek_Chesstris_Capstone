@@ -1,13 +1,19 @@
 import './Board.css';
 
-import black_bishop from '../../assets/images/chess_black_bishop.png';
+import { chess_piece_images } from '../../utilities.js';
 import ChessPiece from './ChessPiece.jsx';
 
-function Board() {
+function getRandomChessPiece(chessPieceImages) {
+    let objectLength = Object.keys(chessPieceImages).length;
+    let randomIndex = Math.floor(Math.random() * objectLength);
 
+    return Object.keys(chessPieceImages)[randomIndex];
+}
+
+function Board() {
     return (
         <div className='board'>
-            <ChessPiece source={black_bishop} />
+            <ChessPiece source={chess_piece_images[getRandomChessPiece(chess_piece_images)]} />
         </div>
     )
 }

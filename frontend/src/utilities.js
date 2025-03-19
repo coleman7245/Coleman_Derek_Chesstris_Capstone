@@ -57,4 +57,19 @@ async function overrideCurrentGame(dispatch) {
     }
 }
 
-export { initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame }; 
+const chess_piece_images = {
+    'black_bishop': '/src/assets/images/chess_black_bishop.png',
+    'black_king' : '/src/assets/images/chess_black_king.png',
+    'black_knight': '/src/assets/images/chees_black_knight.png',
+    'black_pawn' : '/src/assets/images/chess_black_pawn.png',
+    'black_queen' : '/src/assets/images/chess_black_queen.png',
+    'black_rook' : '/src/assets/images/chess_black_rook.png',
+    'white_bishop' : '/src/assets/images/chess_white_bishop.png',
+    'white_king' : '/src/assets/images/chess_white_king.png',
+    'white_knight' : '/src/assets/images/chess_white_knight.png',
+    'white_pawn' : '/src/assets/images/chess_white_pawn.png',
+    'white_queen' : '/src/assets/images/chess_white_queen.png',
+    'white_rook' : '/src/assets/images/chess_white_rook.png'
+};
+
+export { initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images }; 
