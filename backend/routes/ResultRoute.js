@@ -1,41 +1,10 @@
 import express from 'express';
 
-import Player from '../models/Player.js';
-import Score from '../models/Score.js';
-import Time from '../models/Time.js';
+import postPlayerData from '../controllers/result.js';
 
 const router = express.Router();
 
-router.post('/win', async (req, res) => {
-    try {
-        const player = await Player.create(req.body.player);
-        const score = await Score.create(req.body.score);
-        const time = await Time.create(req.body.time);
-        console.log(player);
-        console.log(score);
-        console.log(time);
-        res.status(201).json({player, score, time});
-    }
-    catch (err) {
-        console.log(err);
-        res.status(400).json(err);
-    }
-});
-
-router.post('/lose', async (req, res) => {
-    try {
-        const player = await Player.create(req.body.player);
-        const score = await Score.create(req.body.score);
-        const time = await Time.create(req.body.time);
-        console.log(player);
-        console.log(score);
-        console.log(time);
-        res.status(201).json({player, score, time});
-    }
-    catch (err) {
-        console.log(err);
-        res.status(400).json(err);
-    }
-});
+router.route('/').
+    post(postPlayerData);
 
 export default router;

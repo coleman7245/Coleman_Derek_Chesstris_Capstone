@@ -6,38 +6,36 @@ function SaveBox({locationState}) {
     const [isSaved, setIsSaved] = useState(false);
     const gameState = locationState.state;
 
-    const data = {
-        "player" : {"player_name" : gameState.player_name},
-        "score" : {"player_name" : gameState.player_name, "score" : gameState.score},
-        "time" : {"player_name" : gameState.player_name, "time" : gameState.finishTime}
-    };
-
-    async function handleSave(route, data) {
+    async function handleSave(route) {
         try {
+            const data = {
+                player : {player_name : gameState.player_name},
+                score : {player_name : gameState.player_name, score : gameState.score},
+                time : {player_name : gameState.player_name, time : gameState.finishTime}
+            };
+
             const response = await fetch(route, 
                 {
                     method : 'POST',
-                    body : JSON.stringify(data),
                     headers: {
+                        'Accept': 'application/json',
                         'Content-Type': 'application/json'
-                    }
+                      },
+                    body : JSON.stringify(data)
                 }
             );
             
-            const gameStateDoc = await response.json();
-            console.log(gameStateDoc);
             setIsSaved(true);
         }
         catch(err) {
             console.log(err);
-            //response.status(400).json(err);
         }
     }
 
     return (
         <div className='save-box'>
             {!isSaved? 'Save Data?' : 'Data Saved!'}
-            {isSaved ? null : <button id='save'  onClick={() => handleSave(locationState.pathname, data)}>Save</button>}
+            {isSaved ? null : <button id='save'  onClick={() => handleSave("http://localhost:8080" + location.pathname, data)}>Save</button>}
         </div>
     )
 }
