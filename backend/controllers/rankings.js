@@ -4,7 +4,7 @@ import Time from '../models/Time.js';
 
 async function getAllPlayerData(req, res) {
     try {
-        const scores = Score.find();
+        const scores = await Score.find();
         res.status(200).json(scores);
     }
     catch(err) {
