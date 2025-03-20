@@ -15,8 +15,30 @@ const GameContext = createContext();
 function handleGameState(gameState, action) {
     let newGameState = {...gameState};
 
+    async function postPlayer(playerName) {
+        const data = {player : {player_name : playerName}};
+        console.log(data);
+
+        try {
+            const player = await fetch('http://localhost:8080/api/players', 
+                {
+                    method : 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                        },
+                    body : JSON.stringify(data)
+                }
+            );
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+
     switch (action.type) {
         case 'FORM_INPUT':
+            postPlayer(action.payload);
             newGameState.player_name = action.payload;
             newGameState.startTime = Date.now();
             break;
