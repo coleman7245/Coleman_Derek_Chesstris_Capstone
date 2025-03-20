@@ -1,6 +1,8 @@
 Chesstris
 By Derek Coleman
 
+Netlify Link: https://chesstris.netlify.app/
+
 Notes: Indiviual chess piece images from wikicommons. Home page image from iStock.
 
 Summary:
