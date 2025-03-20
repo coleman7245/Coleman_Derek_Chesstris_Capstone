@@ -1,5 +1,9 @@
 .chesspiece {
-    position: absolute;
+    position: relative;
     height: 0px;
     width: 0px;
+}
+
+.chesspiece > img {
+    border: 1px solid black;
 }

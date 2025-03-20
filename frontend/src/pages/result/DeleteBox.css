@@ -1,4 +1,4 @@
-.save-box {
+.delete-box {
     font: 50px 'Georgia';
     text-align: center;
     color: black;
@@ -11,11 +11,11 @@
     width: fit-content;
     height: fit-content;
     position: absolute;
-    left: 520px;
-    top: 100px;
+    left: 500px;
+    top: 350px;
 }
 
-.save-box > button {
+.delete-box > button {
     background-color: white;
     font: 'Georgia';
     font-weight: bold;
@@ -25,7 +25,7 @@
     margin-right: 1%;
 }
 
-.save-box > button:focus {
+.delete-box > button:focus {
     color: white;
     background-color: black;
 }

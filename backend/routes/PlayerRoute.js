@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getPlayer, getPlayers, postPlayer, patchPlayer } from '../controllers/player.js';
+import { getPlayer, getPlayers, postPlayer, patchPlayer, deletePlayer } from '../controllers/player.js';
 
 const router = express.Router();
 
@@ -10,6 +10,7 @@ router.route('/')
     .put(patchPlayer);
 
 router.route('/:name')
-    .get(getPlayer);
+    .get(getPlayer)
+    .delete(deletePlayer);
 
 export default router;

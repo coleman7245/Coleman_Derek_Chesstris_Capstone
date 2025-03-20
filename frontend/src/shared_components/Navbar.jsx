@@ -13,6 +13,9 @@ function Navbar() {
             <Link to='/rankings' style={{textDecoration: 'none'}}>
                 Rankings
             </Link>
+            <Link to='/edit' style={{textDecoration: 'none'}}>
+                Edit
+            </Link>
             <Link to='/rules' style={{textDecoration: 'none'}}>
                 Rules
             </Link>

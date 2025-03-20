@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './Board.css';
 
 import { chess_piece_images } from '../../utilities.js';
+//import { TetrisPiece } from './TetrisPiece.jsx';
 import ChessPiece from './ChessPiece.jsx';
 
 function getRandomChessPiece(chessPieceImages) {

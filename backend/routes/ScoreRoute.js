@@ -1,10 +1,13 @@
 import express from 'express';
 
-import postScore from '../controllers/score.js';
+import { deleteScore, postScore } from '../controllers/score.js';
 
 const router = express.Router();
 
-router.route('/').
-    post(postScore);
+router.route('/')
+    .post(postScore);
+
+router.route('/:name')
+    .delete(deleteScore);
 
 export default router;

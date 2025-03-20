@@ -15,11 +15,6 @@ function ChessPiece({source}) {
     
     const chessPieceRef = useRef(null);
 
-    useEffect(() => {
-        if (gameState.current_phase !== Game_Phase.PAUSED)
-            chessPieceRef.current.focus();
-    }, [gameState.current_phase]);
-
     function handleInput(event) {
         event.preventDefault();
         let newTransform = {...transform};
@@ -55,6 +50,11 @@ function ChessPiece({source}) {
         dispatch({type : 'CHANGE_SCORE', hasScored : hasScored, crossedFinishLine : crossedFinishLine});
         setTransform(newTransform);
     }
+
+    useEffect(() => {
+        if (gameState.current_phase !== Game_Phase.PAUSED)
+            chessPieceRef.current.focus();
+    }, [gameState.current_phase]);
 
     return (
         <div ref={chessPieceRef} className='chesspiece' autoFocus 

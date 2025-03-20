@@ -1,5 +1,17 @@
 import Player from '../models/Player.js';
 
+async function deletePlayer(req, res) {
+    try {
+        Player.f
+        const player = await Player.findOneAndDelete({name : req.params.name});
+        res.status(200).json(player);
+    }
+    catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+}
+
 async function getPlayer(req, res) {
     try {
         const player = await Player.find({name : req.params.name});
@@ -44,4 +56,4 @@ async function patchPlayer(req, res) {
     }
 }
 
-export { getPlayer, getPlayers, postPlayer, patchPlayer };
+export { deletePlayer, getPlayer, getPlayers, postPlayer, patchPlayer };

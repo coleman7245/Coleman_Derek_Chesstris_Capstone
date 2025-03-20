@@ -1,13 +1,10 @@
 import { useLocation } from 'react-router-dom';
 
-import './ResultPage.css';
+import './EditPage.css';
 
 import Navbar from '../../shared_components/Navbar.jsx';
-import ContinueBox from './ContinueBox.jsx';
-import SaveBox from './SaveBox.jsx';
-import DeleteBox from './DeleteBox.jsx';
 
-function ResultPage({message}) {
+function EditPage({message}) {
     const locationState = useLocation();
 
     return (
@@ -22,4 +19,4 @@ function ResultPage({message}) {
     )
 }
 
-export default ResultPage;
+export default EditPage;

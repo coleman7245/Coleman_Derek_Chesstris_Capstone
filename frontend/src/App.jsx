@@ -8,6 +8,7 @@ import RankingsPage from './pages/rankings/RankingsPage.jsx';
 import AboutPage from './pages/about/AboutPage.jsx';
 import RulesPage from './pages/rules/RulesPage.jsx';
 import ResultPage from './pages/result/ResultPage.jsx';
+import EditPage from './pages/edit/EditPage.jsx';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path='/about' element={<AboutPage />} />
       <Route path='/win' element={<ResultPage message='You win!' />} />
       <Route path='/lose' element={<ResultPage message='You lose!' />} />
+      <Route path='/edit' element={<EditPage />} />
     </Routes>
   )
 }
