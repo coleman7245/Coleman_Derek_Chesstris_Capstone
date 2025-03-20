@@ -1,4 +1,4 @@
-.editpage {
+.editform {
     border: 10px double black;
     width: fit-content;
     height: fit-content;
@@ -12,7 +12,7 @@
     border-radius: 10px;
 }
 
-.form > button {
+.editform > button {
     background-color: white;
     font: 'Georgia';
     font-weight: bold;
@@ -20,7 +20,7 @@
     border-radius: 10px;
 }
 
-.form > button:focus {
+.editform > button:focus {
     color: white;
     background-color: black;
 }

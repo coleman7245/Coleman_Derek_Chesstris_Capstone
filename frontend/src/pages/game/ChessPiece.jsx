@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext } from 'react';
 
 import './ChessPiece.css';
 
-import { GameContext } from './GamePage.jsx';
+import { GameContext } from '../../App.jsx';
 
 import { Game_Phase } from '../../utilities.js';
 
