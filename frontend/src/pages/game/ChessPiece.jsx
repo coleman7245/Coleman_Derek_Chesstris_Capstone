@@ -8,54 +8,59 @@ import { Game_Phase } from '../../utilities.js';
 
 function ChessPiece({source}) {
     const [gameState, dispatch] = useContext(GameContext);
-    const [pos, setPos] = useState([150, -60]);
-    const [rotation, setRotation] = useState(0);
-    const posLimit = {minX: 0, minY: -60, maxX: gameState.board_size.width - 60, maxY: gameState.board_size.height - 120};
-    const vel = 30;
+    const [transform, setTransform] = useState({position: [150, -60], rotation : 0});
+    const positionLimit = {minX: 0, minY: -60, maxX: gameState.board_size.width - 60, maxY: gameState.board_size.height - 120};
+    const velocity = 30;
+    const rotate = 90;
     
     const chessPieceRef = useRef(null);
 
     useEffect(() => {
         if (gameState.current_phase !== Game_Phase.PAUSED)
             chessPieceRef.current.focus();
-    }, []);
+    }, [gameState.current_phase]);
 
     function handleInput(event) {
-        // event.preventDefault();
-        let newPos = [...pos];
+        event.preventDefault();
+        let newTransform = {...transform};
         let hasScored = false;
         let crossedFinishLine = false;
 
         switch (event.key) {
             case 'w':
-                newPos[1] -= (newPos[1] - vel < posLimit.minY) ? 0 : vel;
+                newTransform.position[1] -= (newTransform.position[1] - velocity < positionLimit.minY) ? 0 : velocity;
                 hasScored = true;
                 break;
             case 'a':
-                newPos[0] -= (newPos[0] - vel < posLimit.minX) ? 0 : vel;
+                newTransform.position[0] -= (newTransform.position[0] - velocity < positionLimit.minX) ? 0 : velocity;
                 hasScored = true;
                 break;
             case 's':
-                newPos[1] += (newPos[1] + vel > posLimit.maxY) ? 0 : vel;
+                newTransform.position[1] += (newTransform.position[1] + velocity > positionLimit.maxY) ? 0 : velocity;
                 hasScored = true;
                 break;
             case 'd':
-                newPos[0] += (newPos[0] + vel > posLimit.maxX) ? 0 : vel;
+                newTransform.position[0] += (newTransform.position[0] + velocity > positionLimit.maxX) ? 0 : velocity;
                 hasScored = true;
+                break;
+            case 'r':
+                newTransform.rotation += rotate;
                 break;
             default:
                 hasScored = false;
                 break;
         }
 
-        crossedFinishLine = newPos[1] >= gameState.win_state.win_pos_y ? true : false;
+        crossedFinishLine = newTransform.position[1] >= gameState.win_state.win_pos_y ? true : false;
         dispatch({type : 'CHANGE_SCORE', hasScored : hasScored, crossedFinishLine : crossedFinishLine});
-        setPos(newPos);
+        setTransform(newTransform);
     }
 
     return (
-        <div ref={chessPieceRef} className='chesspiece' autoFocus style={{'left': `${pos[0]}px`, 'top': `${pos[1]}px`}} tabIndex='0' onKeyDown={(e) => handleInput(e)}>
-            <img src={source} />
+        <div ref={chessPieceRef} className='chesspiece' autoFocus 
+            style={{left: `${transform.position[0]}px`, top: `${transform.position[1]}px`, rotate: `${transform.rotation}`}} 
+            tabIndex='0' onKeyDown={(e) => handleInput(e)}>
+                <img src={source} />
         </div>
     );
 }

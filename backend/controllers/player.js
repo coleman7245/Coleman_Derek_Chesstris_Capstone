@@ -1,5 +1,16 @@
 import Player from '../models/Player.js';
 
+async function getPlayer(req, res) {
+    try {
+        const player = await Player.find({name : req.params.name});
+        res.status(200).json(player);
+    }
+    catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+}
+
 async function getPlayers(req, res) {
     try {
         const players = await Player.find();
@@ -33,4 +44,4 @@ async function patchPlayer(req, res) {
     }
 }
 
-export { getPlayers, postPlayer, patchPlayer };
+export { getPlayer, getPlayers, postPlayer, patchPlayer };
