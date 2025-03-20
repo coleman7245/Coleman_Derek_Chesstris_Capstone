@@ -11,7 +11,7 @@ function ChessPiece({source}) {
     const [transform, setTransform] = useState({position: [150, -60], rotation : 0});
     const positionLimit = {minX: 0, minY: -60, maxX: gameState.board_size.width - 60, maxY: gameState.board_size.height - 120};
     const velocity = 30;
-    const rotate = 90;
+    const degree = 90;
     
     const chessPieceRef = useRef(null);
 
@@ -44,7 +44,7 @@ function ChessPiece({source}) {
                 hasScored = true;
                 break;
             case 'r':
-                newTransform.rotation += rotate;
+                newTransform.rotation += degree;
                 break;
             default:
                 hasScored = false;
@@ -58,9 +58,9 @@ function ChessPiece({source}) {
 
     return (
         <div ref={chessPieceRef} className='chesspiece' autoFocus 
-            style={{left: `${transform.position[0]}px`, top: `${transform.position[1]}px`, rotate: `${transform.rotation}`}} 
+            style={{left: `${transform.position[0]}px`, top: `${transform.position[1]}px`}}
             tabIndex='0' onKeyDown={(e) => handleInput(e)}>
-                <img src={source} />
+                <img src={source} style={{transform: `rotate(${transform.rotation}deg)`}} />
         </div>
     );
 }
