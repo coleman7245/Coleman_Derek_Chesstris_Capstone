@@ -7,24 +7,12 @@ function SaveBox({locationState}) {
     const gameState = locationState.state;
 
     const data = {
-        player : {player_name : gameState.player_name},
         score : {player_name : gameState.player_name, score : gameState.score},
         time : {player_name : gameState.player_name, time : gameState.finishTime}
     };
 
     async function handleSave(route, data) {
         try {
-            const player = await fetch(route + '/api/players', 
-                {
-                    method : 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                      },
-                    body : JSON.stringify(data)
-                }
-            );
-
             const score = await fetch(route + '/api/scores', 
                 {
                     method : 'POST',
