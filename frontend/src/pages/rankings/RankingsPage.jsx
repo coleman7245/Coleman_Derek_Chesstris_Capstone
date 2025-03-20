@@ -10,7 +10,7 @@ function RankingsPage() {
 
     async function getScores() {
         try {
-            const response = await fetch(`http://localhost:8080/rankings`);
+            const response = await fetch(`http://localhost:8080/api/scores`);
             console.log(response);
             const scores = await response.json();
             setScores(scores);
