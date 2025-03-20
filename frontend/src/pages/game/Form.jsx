@@ -13,8 +13,7 @@ function Form() {
     function handleSubmission(e, dispatch, input) {
         e.preventDefault();
         playerExists(input);
-        if (nameTaken) {
-            setNameTaken(false);
+        if (!nameTaken) {
             dispatch({type : 'FORM_INPUT', payload :input});
         }
         else {
@@ -26,7 +25,7 @@ function Form() {
         try {
             const response = await fetch("http://localhost:8080/api/players");
             const players = await response.json();
-            players.some((p) => p.player_name === playerName, playerName) ? setNameTaken(true) : setNameTaken(false);
+            players.some((p) => p.name === playerName, playerName) ? setNameTaken(true) : setNameTaken(false);
         }
         catch(err) {
             console.log(err);

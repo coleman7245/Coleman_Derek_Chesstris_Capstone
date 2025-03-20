@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 const playerSchema = new mongoose.Schema({
-    player_name : {
+    name : {
         type : String, 
         required : true,
+        unique : true
     },
     email : {
         type : String, 

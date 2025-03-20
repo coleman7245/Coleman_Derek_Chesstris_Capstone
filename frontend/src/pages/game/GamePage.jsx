@@ -16,8 +16,7 @@ function handleGameState(gameState, action) {
     let newGameState = {...gameState};
 
     async function postPlayer(playerName) {
-        const data = {player : {player_name : playerName}};
-        console.log(data);
+        const data = {player : {name : playerName}};
 
         try {
             const player = await fetch('http://localhost:8080/api/players', 
