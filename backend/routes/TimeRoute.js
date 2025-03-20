@@ -1,10 +1,10 @@
 import express from 'express';
 
-import postPlayerData from '../controllers/result.js';
+import postTime from '../controllers/time.js';
 
 const router = express.Router();
 
 router.route('/').
-    post(postPlayerData);
+    post(postTime);
 
 export default router;

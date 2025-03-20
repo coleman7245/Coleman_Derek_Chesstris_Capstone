@@ -9,6 +9,7 @@ import { Game_Phase } from '../../utilities.js';
 function ChessPiece({source}) {
     const [gameState, dispatch] = useContext(GameContext);
     const [pos, setPos] = useState([150, -60]);
+    const [rotation, setRotation] = useState(0);
     const posLimit = {minX: 0, minY: -60, maxX: gameState.board_size.width - 60, maxY: gameState.board_size.height - 120};
     const vel = 30;
     

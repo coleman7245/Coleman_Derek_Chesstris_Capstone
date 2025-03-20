@@ -13,6 +13,27 @@ function Form() {
     const [gameState, dispatch] = useContext(GameContext);
     const [input, setInput] = useState('');
 
+    async function checkForPlayer(player) {
+        try {
+            const players = await fetch("http://localhost:8080/game");
+            if (players.some((p) => p.player_name === player.player_name), player) {
+                return true;
+            }
+        }
+        catch(err) {
+            
+        }
+    }
+
+    async function postPlayer(req, res) {
+        try {
+
+        }
+        catch(err) {
+
+        }
+    }
+
     return (
         <form className='form' id='player-form' onSubmit={(e) => handleSubmission(e, dispatch, input)}>
             Enter your name <br /> <br />

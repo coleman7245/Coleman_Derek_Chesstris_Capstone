@@ -1,10 +1,10 @@
 import express from 'express';
 
-import getAllPlayerData from '../controllers/rankings.js';
+import postScore from '../controllers/score.js';
 
 const router = express.Router();
 
 router.route('/').
-    get(getAllPlayerData);
+    post(postScore);
 
 export default router;
