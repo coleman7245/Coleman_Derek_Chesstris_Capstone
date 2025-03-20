@@ -1,11 +1,12 @@
 import express from 'express';
 
-import { getPlayers, postPlayer } from '../controllers/player.js';
+import { getPlayers, postPlayer, patchPlayer } from '../controllers/player.js';
 
 const router = express.Router();
 
 router.route('/')
     .get(getPlayers)
-    .post(postPlayer);
+    .post(postPlayer)
+    .put(patchPlayer);
 
 export default router;

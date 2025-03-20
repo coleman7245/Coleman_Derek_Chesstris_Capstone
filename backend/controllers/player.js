@@ -22,4 +22,15 @@ async function postPlayer(req, res) {
     }
 }
 
-export { getPlayers, postPlayer };
+async function patchPlayer(req, res) {
+    try {
+        const appendedPlayer = await Player.findOneAndUpdate({player_name : req.body.player.name}, req.body.player);
+        res.status(200).json(appendedPlayer);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+}
+
+export { getPlayers, postPlayer, patchPlayer };
