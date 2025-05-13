@@ -30,6 +30,8 @@ function GamePage() {
         }
     }, [gameState.current_phase, navigate, dispatch]);
 
+    console.log(gameState.player_name);
+
     return (
         <div>
             <Navbar />

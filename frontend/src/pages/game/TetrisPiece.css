@@ -1,9 +1,15 @@
-tetris-piece {
-    display: inline-block;
-    position: relative;
-}
-
-#main #secondary {
+.tetris-piece {
     position: absolute;
 }
 
+.chesspiece {
+    height: 0px;
+    width: 0px;
+}
+
+.chesspiece > img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
