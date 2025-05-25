@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import './DeleteBox.css';
 
-function DeleteBox({locationState}) {
+import { GameContext } from '../../App.jsx';
+
+function DeleteBox() {
     const [isDeleted, setIsDeleted] = useState(false);
-    const gameState = locationState.state;
+    const [gameState, dispatch] = useContext(GameContext);
 
     const data = {
         score : {player_name : gameState.player_name, score : gameState.score},

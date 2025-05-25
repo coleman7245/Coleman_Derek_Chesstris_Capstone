@@ -247,58 +247,121 @@ function calculateTBlockRotation(orientation) {
     first_block: { top: 0, left: 30 },
     second_block: { top: 0, left: -30 },
     third_block: { top: 30, left: 0 },
-    main_block: { top: 0, left: 0 }
+    main_block: { top: 0, left: 0 },
+    default_position: [135, 30]
   };
   
   const lBlockStartPositions = {
     first_block: { top: 30, left: -15 },
     second_block: { top: 0, left: -15 },
     third_block: { top: -30, left: -15 },
-    main_block: { top: 30, left: 15 }
+    main_block: { top: 30, left: 15 },
+    default_position: [135, 30]
   };
   
   const reverseLBlockStartPositions = {
     first_block: { top: 30, left: 15 },
     second_block: { top: 0, left: 15 },
     third_block: { top: -30, left: 15 },
-    main_block: { top: 30, left: -15 }
+    main_block: { top: 30, left: -15 },
+    default_position: [135, 30]
   };
   
   const squigglyBlockStartPositions = {
     first_block: { top: 15, left: 0 },
     second_block: { top: -15, left: 0 },
     third_block: { top: -15, left: 30 },
-    main_block: { top: 15, left: -30 }
+    main_block: { top: 15, left: -30 },
+    default_position: [135, 30]
   };
   
   const reverseSquigglyBlockStartPositions = {
     first_block: { top: 15, left: 0 },
     second_block: { top: -15, left: 0 },
     third_block: { top: -15, left: -30 },
-    main_block: { top: 15, left: 30 }
+    main_block: { top: 15, left: 30 },
+    default_position: [135, 30]
   };
   
   const squareBlockStartPositions = {
     first_block: { top: -15, left: -15 },
     second_block: { top: 15, left: -15 },
     third_block: { top: 15, left: 15 },
-    main_block: { top: -15, left: 15 }
+    main_block: { top: -15, left: 15 },
+    default_position: [135, 30]
   };
   
   const lineBlockStartPositions = {
     first_block: { top: -15, left: 0 },
     second_block: { top: 15, left: 0 },
     third_block: { top: 45, left: 0 },
-    main_block: { top: -45, left: 0 }
-  };
-  
-  const defaultTransform = {
-    position: [150, -30],
-    group_positions: lineBlockStartPositions,
-    orientation: 0,
+    main_block: { top: -45, left: 0 },
+    default_position: [135, 30]
   };
 
-  export { defaultTransform, lineBlockStartPositions, squareBlockStartPositions, reverseSquigglyBlockStartPositions, squigglyBlockStartPositions, 
-    reverseLBlockStartPositions, lBlockStartPositions, tBlockStartPositions, calculateLineBlockRotation, calculateSquareBlockRotation, 
-    calculateReverseSquigglyBlockRotation, calculateSquigglyBlockRotation, calculateReverseLBlockRotation, calculateLBlockRotation, 
-    calculateTBlockRotation };
+  function createBlockConfig(type) {
+    let config = {};
+
+    switch(type) {
+      case 'tBlock':
+        config = {
+          position: tBlockStartPositions.default_position,
+          group_positions: tBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateTBlockRotation
+        };
+        break;
+      case 'squigglyBlock':
+        config = {
+          position: squigglyBlockStartPositions.default_position,
+          group_positions: squigglyBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateSquigglyBlockRotation
+        };
+        break;
+      case 'reverseSquigglyBlock':
+        config = {
+          position: reverseSquigglyBlockStartPositions.default_position,
+          group_positions: reverseSquigglyBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateReverseSquigglyBlockRotation
+        };
+        break;
+      case 'lBlock':
+        config = {
+          position: lBlockStartPositions.default_position,
+          group_positions: lBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateLBlockRotation
+        };
+        break;
+      case 'reverseLBlock':
+        config = {
+          position: reverseLBlockStartPositions.default_position,
+          group_positions: reverseLBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateReverseLBlockRotation
+        };
+        break;
+      case 'squareBlock':
+        config = {
+          position: squareBlockStartPositions.default_position,
+          group_positions: squareBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateSquareBlockRotation
+        };
+        break;
+      case 'lineBlock':
+        config = {
+          position: lineBlockStartPositions.default_position,
+          group_positions: lineBlockStartPositions,
+          orientation: 0,
+          rotate_function: calculateLineBlockRotation
+        };
+        break;
+    }
+
+    return config;
+  }
+
+  export { createBlockConfig };

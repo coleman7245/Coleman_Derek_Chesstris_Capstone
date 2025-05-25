@@ -1,13 +1,20 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { GameContext } from '../../App.jsx';
 
 import './ContinueBox.css';
 
-function ContinueBox({message, gameState}) {
+function ContinueBox({message}) {
     const navigate = useNavigate();
+    const [gameState, dispatch] = useContext(GameContext);
 
     function handleContinue(e) {
-        if (e.target.innerText === 'Yes')
+        if (e.target.innerText === 'Yes') {
+            //NOTE: Save player data here!!!
+            dispatch({type: 'RESET_GAME'});
             navigate('/game');
+        }
         else if (e.target.innerText === 'No')
             navigate('/');
     }

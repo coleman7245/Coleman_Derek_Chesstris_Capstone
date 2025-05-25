@@ -21,7 +21,8 @@ const initialGameState = {
         win_pos_y : 480,
         win_score : 18
     },
-    isPaused : false
+    isPaused : false,
+    tetris_pieces : []
 }
 
 async function getCurrentGame(dispatch) {
@@ -53,7 +54,7 @@ async function overrideCurrentGame(dispatch) {
         dispatch({type : 'OVERRIDE_GAME', game : result});
     }
     catch (err) {
-
+        console.log(err);
     }
 }
 
@@ -72,4 +73,14 @@ const chess_piece_images = {
     'white_rook' : '/src/assets/images/chess_white_rook.png'
 };
 
-export { initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images }; 
+const tetris_block_types = [
+    'tBlock',
+    'squigglyBlock',
+    'reverseSquigglyBlock',
+    'lBlock',
+    'reverseLBlock',
+    'squareBlock',
+    'lineBlock'
+];
+
+export { initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 

@@ -60,7 +60,7 @@ function handleGameState(gameState, action) {
 }
 
   switch (action.type) {
-      case 'FORM_INPUT':
+      case 'ADD_NEW_PLAYER':
           postPlayer(action.player);
           newGameState.player_name = action.player.name;
           newGameState.startTime = Date.now();
@@ -72,6 +72,10 @@ function handleGameState(gameState, action) {
       case 'UPDATE_TIME':
           newGameState.finishTime = getTime(newGameState.startTime);
           break;
+      case 'RESET_GAME':
+        newGameState.score = 0;
+        newGameState.startTime = Date.now();
+        newGameState.finishTime = getTime(newGameState.startTime);
       case 'CHANGE_SCORE':
           if (action.hasScored)
               newGameState.score += 1;
