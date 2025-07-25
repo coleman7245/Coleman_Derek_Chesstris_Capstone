@@ -22,7 +22,8 @@ const initialGameState = {
         win_score : 18
     },
     isPaused : false,
-    tetris_pieces : []
+    tetris_pieces : [],
+    default_block_position: []
 }
 
 async function getCurrentGame(dispatch) {

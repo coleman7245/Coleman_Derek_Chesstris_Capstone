@@ -1,7 +1,13 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import { GameContext } from '../App.jsx';
+
 import './Navbar.css';
 
 function Navbar() {
+    const [gameState, dispatch] = useContext(GameContext);
+
     return (
         <div className='navbar'>
             <Link to='/' style={{textDecoration: 'none'}}>
@@ -22,6 +28,9 @@ function Navbar() {
             <Link to='/about' style={{textDecoration: 'none'}}>
                 About
             </Link>
+            <span>
+                Player: {gameState.player_name} logged in
+            </span>
         </div>
     )
 }

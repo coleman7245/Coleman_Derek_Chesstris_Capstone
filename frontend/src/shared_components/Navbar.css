@@ -16,3 +16,9 @@
     color: white;
     background-color: black;
 }
+
+.navbar > span {
+    margin-left: 68%;
+    color: black;
+    font-weight: bold;
+}

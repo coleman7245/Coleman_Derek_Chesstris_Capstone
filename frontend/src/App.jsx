@@ -76,6 +76,7 @@ function handleGameState(gameState, action) {
         newGameState.score = 0;
         newGameState.startTime = Date.now();
         newGameState.finishTime = getTime(newGameState.startTime);
+        newGameState.default_block_position = [135, 30];
       case 'CHANGE_SCORE':
           if (action.hasScored)
               newGameState.score += 1;
@@ -117,6 +118,8 @@ function getTime(startTime) {
 
 function App() {
   const [gameState, dispatch] = useReducer(handleGameState, initialGameState);
+
+  console.log(gameState.player_name);
 
   return (
     <GameContext.Provider value={[gameState, dispatch]}>
