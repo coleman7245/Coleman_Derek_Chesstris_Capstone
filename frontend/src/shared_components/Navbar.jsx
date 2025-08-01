@@ -28,9 +28,16 @@ function Navbar() {
             <Link to='/about' style={{textDecoration: 'none'}}>
                 About
             </Link>
-            <span>
-                Player: {gameState.player_name} logged in
-            </span>
+            {gameState.player_name ?
+                <span>
+                    Player: {gameState.player_name} logged in
+                </span>
+                :
+                <span>
+                    <Link to='/login'>
+                        Sign In
+                    </Link>
+                </span>}
         </div>
     )
 }

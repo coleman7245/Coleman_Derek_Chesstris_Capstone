@@ -30,21 +30,16 @@ function GamePage() {
         }
     }, [gameState.current_phase, navigate, dispatch]);
 
-    console.log(gameState.player_name);
+    console.log(gameState.current_phase);
 
     return (
         <div>
             <Navbar />
-            {gameState.player_name? 
             <div className='gamepage'>
                 <Board />
                 <GameInfo />
                 <button id='pause-btn' onClick={() => dispatch({type : 'PAUSED'})} >Pause</button>
-            </div> :
-            <div className='formpage'>
-                <Form />
             </div>
-            }
         </div>
     );
 }

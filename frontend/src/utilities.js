@@ -8,14 +8,14 @@ const Game_Phase = {
 
 const initialGameState = {
     player_name : '', 
-    startTime : 0,
+    startTime : new Date(),
     finishTime : {hours : 0, minutes: 0, seconds: 0}, 
     score : 0,
     board_size : {
         width: 360,
         height: 600
     },
-    current_phase : Game_Phase.NOT_RUNNING,
+    current_phase : Game_Phase.PLAYING,
     crossed_finish_line : false,
     win_state : {
         win_pos_y : 480,

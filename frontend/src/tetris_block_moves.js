@@ -213,28 +213,28 @@ function calculateTBlockRotation(orientation) {
   
     switch (orientation) {
       case 0:
-        newPositions.first_block = { top: -15, left: 0 };
-        newPositions.second_block = { top: 15, left: 0 };
-        newPositions.third_block = { top: 45, left: 0 };
-        newPositions.main_block = { top: -45, left: 0 };
-        break;
-      case 90:
         newPositions.first_block = { top: 0, left: -15 };
         newPositions.second_block = { top: 0, left: 15 };
         newPositions.third_block = { top: 0, left: 45 };
         newPositions.main_block = { top: 0, left: -45 };
         break;
-      case 180:
-        newPositions.first_block = { top: 15, left: 0 };
-        newPositions.second_block = { top: -15, left: 0 };
-        newPositions.third_block = { top: -45, left: 0 };
-        newPositions.main_block = { top: 45, left: 0 };
+      case 90:
+        newPositions.first_block = { top: -15, left: 0 };
+        newPositions.second_block = { top: 15, left: 0 };
+        newPositions.third_block = { top: 45, left: 0 };
+        newPositions.main_block = { top: -45, left: 0 };
         break;
-      case 270:
+      case 180:
         newPositions.first_block = { top: 0, left: 15 };
         newPositions.second_block = { top: 0, left: -15 };
         newPositions.third_block = { top: 0, left: -45 };
         newPositions.main_block = { top: 0, left: 45 };
+        break;
+      case 270:
+        newPositions.first_block = { top: 15, left: 0 };
+        newPositions.second_block = { top: -15, left: 0 };
+        newPositions.third_block = { top: -45, left: 0 };
+        newPositions.main_block = { top: 45, left: 0 };
         break;
       default:
         break;
@@ -292,10 +292,10 @@ function calculateTBlockRotation(orientation) {
   };
   
   const lineBlockStartPositions = {
-    first_block: { top: -15, left: 0 },
-    second_block: { top: 15, left: 0 },
-    third_block: { top: 45, left: 0 },
-    main_block: { top: -45, left: 0 },
+    first_block : { top: 0, left: -15 },
+    second_block : { top: 0, left: 15 },
+    third_block : { top: 0, left: 45 },
+    main_block : { top: 0, left: -45 },
     default_position: [135, 30]
   };
 
