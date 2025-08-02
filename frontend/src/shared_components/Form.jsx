@@ -52,7 +52,7 @@ function Form() {
             {emailTaken && nameTaken ? <div id='logging-in'>Logging In...</div> : null}
             <input id='name-field' type='text' placeholder='Name' onChange={(e) => setName(e.target.value)} value={name}/> <br /> <br />
             <input id='email-field' type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/> <br /> <br />
-            <button htmlFor='player-form'>Submit</button>
+            <button htmlFor='player-form' onClick={(e) => e.target.blur()}>Submit</button>
         </form>
     )
 }

@@ -20,7 +20,7 @@
     border-radius: 10px;
 }
 
-.form > button:focus {
+.form > button:active {
     color: white;
     background-color: black;
 }
