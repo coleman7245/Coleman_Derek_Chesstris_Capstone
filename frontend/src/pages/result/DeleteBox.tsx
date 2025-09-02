@@ -8,7 +8,7 @@ function DeleteBox() {
     const [isDeleted, setIsDeleted] = useState(false);
     const [gameState] = useContext(GameContext);
 
-    async function handleDelete(url : string, name : string) {
+    async function handleDelete(url : string, name : string) : Promise<void> {
         try {
             await fetch(url + `/players/${name}`,
                 {

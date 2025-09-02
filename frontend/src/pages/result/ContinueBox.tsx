@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { GameContext } from '../../App.jsx';
+import { GameContext } from '../../App.tsx';
 
 import './ContinueBox.css';
 
@@ -9,13 +9,15 @@ function ContinueBox({message}) {
     const navigate = useNavigate();
     const [gameState, dispatch] = useContext(GameContext);
 
-    function handleContinue(e) {
-        if (e.target.innerText === 'Yes') {
+    function handleContinue(e : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void {
+        const button = e.target as HTMLElement;
+
+        if (button.innerText === 'Yes') {
             //NOTE: Save player data here!!!
             dispatch({type: 'RESET_GAME'});
             navigate('/game');
         }
-        else if (e.target.innerText === 'No')
+        else if (button.innerText === 'No')
             navigate('/');
     }
 
@@ -26,7 +28,12 @@ function ContinueBox({message}) {
             Time: {gameState.finishTime.hours} : {gameState.finishTime.minutes} : {gameState.finishTime.seconds} <br />
             Score: {gameState.score} <br /> <br />
             Continue? <br />
-            <button id='yes' onClick={(e) => handleContinue(e)}>Yes</button>
+            <button id='yes' onClick={(e) => {
+                const event = e as React.MouseEvent<HTMLButtonElement, MouseEvent>;
+                handleContinue(event);}
+            }>
+                Yes
+            </button>
             <button id='no' onClick={(e) => handleContinue(e)}>No</button>
         </div>
     )
