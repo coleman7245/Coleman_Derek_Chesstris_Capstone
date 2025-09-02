@@ -8,12 +8,12 @@ import RankingsList from './RankingsList.jsx';
 function RankingsPage() {
     const [scores, setScores] = useState([]);
 
-    async function getScores() {
+    async function getScores() : Promise<any> {
         try {
             const response = await fetch(`http://localhost:8080/api/scores`);
             console.log(response);
-            const scores = await response.json();
-            setScores(scores);
+            const scores : Promise<any> = await response.json();
+            setScores(await scores);
         }
         catch(err) {
             console.log(err);

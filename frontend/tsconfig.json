@@ -55,5 +55,7 @@
     "SaveBox.tsx",
     "RulesPage.tsx",
     "DeleteBox.tsx",
+    "ContinueBox.tsx",
+    "RankingsPage.tsx"
   ]
 }
