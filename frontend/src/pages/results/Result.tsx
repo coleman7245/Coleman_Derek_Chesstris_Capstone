@@ -1,7 +1,7 @@
 import './WinPage.css';
 
-import Navbar from '../../shared_components/Navbar.jsx';
-import ContinueBox from '../result/ContinueBox.jsx';
+import Navbar from '../../shared_components/Navbar.tsx';
+import ContinueBox from '../result/ContinueBox.tsx';
 
 function WinPage() {
     return (

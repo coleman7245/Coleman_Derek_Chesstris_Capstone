@@ -9,6 +9,10 @@ const playerSchema = new mongoose.Schema({
     email : {
         type : String, 
         default : ''
+    },
+    score : {
+        type : Number,
+        required : true
     }
 });
 

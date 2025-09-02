@@ -6,7 +6,7 @@ import { GameContext } from '../../App.jsx';
 
 function DeleteBox() {
     const [isDeleted, setIsDeleted] = useState(false);
-    const [gameState, dispatch] = useContext(GameContext);
+    const [gameState] = useContext(GameContext);
 
     const data = {
         score : {player_name : gameState.player_name, score : gameState.score},

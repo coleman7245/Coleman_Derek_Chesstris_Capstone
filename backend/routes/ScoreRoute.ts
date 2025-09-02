@@ -1,6 +1,6 @@
-import express from 'express';
+import * as express from 'express';
 
-import { deleteScore, getScores, postScore } from '../controllers/score.js';
+import { deleteScore, getScores, postScore } from '../controllers/score.ts';
 
 const router = express.Router();
 

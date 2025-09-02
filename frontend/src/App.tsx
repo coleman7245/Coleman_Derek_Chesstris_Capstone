@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -12,14 +12,14 @@ import ResultPage from './pages/result/ResultPage.jsx';
 import EditPage from './pages/edit/EditPage.jsx';
 import Login from './pages/login/Login.jsx';
 
-import {initialGameState, Game_Phase } from './utilities.js';
+import {initialGameState, GameState, Time, Game_Phase, Player, Action } from './utilities.ts';
 
-const GameContext = createContext();
+const GameContext : React.Context<any> = createContext({});
 
-function handleGameState(gameState, action) {
-    let newGameState = {...gameState};
+function handleGameState(gameState : GameState, action : Action) : GameState {
+    let newGameState : GameState = {...gameState};
 
-    async function postPlayer(player) {
+    async function postPlayer(player : Player) {
         const data = {player};
 
         try {
@@ -39,7 +39,7 @@ function handleGameState(gameState, action) {
         }
     }
 
-    async function putPlayer(player) {
+    async function putPlayer(player : Player) {
         const data = {player};
 
         try {
@@ -67,7 +67,7 @@ function handleGameState(gameState, action) {
             break;
         case 'EDIT_INPUT':
             putPlayer(action.player);
-            newGameState.player_name = action.player;
+            newGameState.player_name = action.player.name;
             break;
         case 'UPDATE_TIME':
             newGameState.finishTime = getTime(newGameState.startTime);
@@ -93,7 +93,7 @@ function handleGameState(gameState, action) {
     return newGameState;
 }
 
-function checkGamePhase(gameState) {
+function checkGamePhase(gameState : GameState) : Game_Phase {
     if (gameState.score <= gameState.win_state.win_score && gameState.crossed_finish_line)
         return Game_Phase.WON;
     else if (gameState.crossed_finish_line)
@@ -102,13 +102,13 @@ function checkGamePhase(gameState) {
         return Game_Phase.PLAYING;
 }
 
-function getTime(startTime) {
-    let currentTime = Date.now() - startTime;
-    let seconds = currentTime / 1000;
-    let minutes = seconds / 60;
-    let hours = minutes / 60;
+function getTime(startTime : number) : Time {
+    let currentTime : number = Date.now() - startTime;
+    let seconds : number = currentTime / 1000;
+    let minutes : number = seconds / 60;
+    let hours : number = minutes / 60;
 
-    let gameTime = {
+    let gameTime : Time = {
         seconds : (seconds >= 60) ? Math.floor(seconds - (Math.floor(minutes) * 60)) : Math.floor(seconds),
         minutes : (minutes >= 60) ? Math.floor(minutes - (Math.floor(hours) * 60)) : Math.floor(minutes),
         hours : Math.floor(hours)
@@ -124,17 +124,17 @@ function App() {
 
     return (
         <GameContext.Provider value={[gameState, dispatch]}>
-        <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/game' element={<GamePage />} />
-            <Route path='/rankings' element={<RankingsPage />} />
-            <Route path='/rules' element={<RulesPage />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/win' element={<ResultPage message='You win!' />} />
-            <Route path='/lose' element={<ResultPage message='You lose!' />} />
-            <Route path='/edit' element={<EditPage />} />
-        </Routes>
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/game' element={<GamePage />} />
+                <Route path='/rankings' element={<RankingsPage />} />
+                <Route path='/rules' element={<RulesPage />} />
+                <Route path='/about' element={<AboutPage />} />
+                <Route path='/win' element={<ResultPage message='You win!' />} />
+                <Route path='/lose' element={<ResultPage message='You lose!' />} />
+                <Route path='/edit' element={<EditPage />} />
+            </Routes>
         </GameContext.Provider>
     )
 }

@@ -1,6 +1,6 @@
-import express from 'express';
+import * as express from 'express';
 
-import { deleteTime, postTime } from '../controllers/time.js';
+import { deleteTime, postTime } from '../controllers/time.ts';
 
 const router = express.Router();
 

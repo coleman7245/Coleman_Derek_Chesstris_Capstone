@@ -1,14 +1,65 @@
-const Game_Phase = {
-    PLAYING : 'PLAYING',
-    LOST: 'LOST',
-    WON: 'WON',
-    NOT_RUNNING : 'NOT_RUNNING',
-    PAUSED : 'PAUSED'
-} 
+type Player = {
+    name : string,
+    email : string,
+    scores : Array<number>
+}
 
-const initialGameState = {
+type Action = {
+    type : string,
+    player : Player,
+    hasScored : boolean,
+    crossedFinishLine : boolean
+}
+
+type GameState = {
+    player_name : string, 
+    startTime : number,
+    finishTime : Time, 
+    score : number,
+    board_size : Dimensions,
+    current_phase : Game_Phase,
+    crossed_finish_line : boolean,
+    win_state : WinState,
+    isPaused : boolean,
+    tetris_pieces : Array<number>,
+    default_block_position: Array<number>
+}
+
+type WinState = {
+    win_pos_y : number,
+    win_score : number
+}
+
+type Time = {
+    hours : number,
+    minutes : number,
+    seconds : number
+}
+
+type Dimensions = {
+    width : number,
+    height : number
+}
+
+type State = {
+
+}
+
+type RefObject = {
+    
+}
+
+enum Game_Phase {
+    PLAYING,
+    LOST,
+    WON,
+    NOT_RUNNING,
+    PAUSED
+}
+
+const initialGameState : GameState = {
     player_name : '', 
-    startTime : new Date(),
+    startTime : 0,
     finishTime : {hours : 0, minutes: 0, seconds: 0}, 
     score : 0,
     board_size : {
@@ -26,7 +77,7 @@ const initialGameState = {
     default_block_position: []
 }
 
-async function getCurrentGame(dispatch) {
+async function getCurrentGame(dispatch : Function) : Promise<any> {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -37,7 +88,7 @@ async function getCurrentGame(dispatch) {
     }
 }
 
-async function saveCurrentGame(dispatch) {
+async function saveCurrentGame(dispatch : Function) {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -48,7 +99,7 @@ async function saveCurrentGame(dispatch) {
     }
 }
 
-async function overrideCurrentGame(dispatch) {
+async function overrideCurrentGame(dispatch : Function) {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -75,13 +126,13 @@ const chess_piece_images = {
 };
 
 const tetris_block_types = [
-    'tBlock',
-    'squigglyBlock',
-    'reverseSquigglyBlock',
-    'lBlock',
-    'reverseLBlock',
-    'squareBlock',
-    'lineBlock'
+    't',
+    'squiggly',
+    'reverseSquiggly',
+    'l',
+    'reverseL',
+    'square',
+    'line'
 ];
 
-export { initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 
+export { WinState, State, Time, Player, Action, GameState, initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 

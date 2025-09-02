@@ -30,7 +30,7 @@ function createRandomTetrisPiece(tetrisBlockTypes, sources) {
 }
 
 function Board() {
-    const [sources, setSources] = useState(getRandomChessPieces(chess_piece_images));
+    const [sources] = useState(getRandomChessPieces(chess_piece_images));
 
     return (
         <div className='board'>

@@ -2,19 +2,21 @@ import { useContext, useState, useEffect, useRef } from 'react';
 
 import './Form.css';
 
-import { GameContext } from '../App.jsx';
+import { GameContext } from '../App.tsx';
+
+import { Player } from '../utilities.ts';
 
 function Form() {
-    const textRef = useRef(null);
-    const [gameState, dispatch] = useContext(GameContext);
+    const textRef = useRef<HTMLFormElement>(null);
+    const [dispatch] = useContext(GameContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [nameTaken, setNameTaken] = useState(false);
     const [emailTaken, setEmailTaken] = useState(false);
 
-    function handleSubmission(e, dispatch, name, email) {
+    function handleSubmission(e : React.FormEvent<HTMLFormElement>, dispatch : Function, name : string, email : string) {
         e.preventDefault();
-        playerExists(name);
+        playerExists(name, email);
         if (!nameTaken && !emailTaken) {
             dispatch({type : 'ADD_NEW_PLAYER', player : {name : name, email : email}});
         }
@@ -27,12 +29,12 @@ function Form() {
         }
     }
 
-    async function playerExists(playerName, playerEmail) {
+    async function playerExists(playerName : string, playerEmail : string) {
         try {
             const response = await fetch("http://localhost:8080/api/players");
             const players = await response.json();
-            players.some((p) => p.name === playerName, playerName) ? setNameTaken(true) : setNameTaken(false);
-            players.some((p) => p.email === playerEmail, playerEmail) ? setEmailTaken(true) : setEmailTaken(false);
+            players.some((p : Player) => p.name === playerName, playerName) ? setNameTaken(true) : setNameTaken(false);
+            players.some((p : Player) => p.email === playerEmail, playerEmail) ? setEmailTaken(true) : setEmailTaken(false);
         }
         catch(err) {
             console.log(err);
@@ -40,7 +42,7 @@ function Form() {
     }
 
     useEffect(() => {
-        if (nameTaken || emailTaken)
+        if ((nameTaken || emailTaken) && textRef !== null && textRef.current !== null)
             textRef.current.focus();
     }, [nameTaken, emailTaken]);
 
@@ -52,7 +54,12 @@ function Form() {
             {emailTaken && nameTaken ? <div id='logging-in'>Logging In...</div> : null}
             <input id='name-field' type='text' placeholder='Name' onChange={(e) => setName(e.target.value)} value={name}/> <br /> <br />
             <input id='email-field' type='text' placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email}/> <br /> <br />
-            <button htmlFor='player-form' onClick={(e) => e.target.blur()}>Submit</button>
+            <button onClick={(e) => {
+                const button = e.target as HTMLButtonElement;
+                button.blur();
+                }}>
+                Submit
+            </button>
         </form>
     )
 }

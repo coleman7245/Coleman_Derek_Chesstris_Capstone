@@ -1,6 +1,8 @@
-import Time from '../models/Time.js';
+import { Request, Response } from 'express';
 
-async function deleteTime(req, res) {
+import Time from '../models/Time.ts';
+
+async function deleteTime(req : Request, res : Response) {
     try {
         const time = await Time.deleteMany({player_name : req.params.name});
         res.status(200).json(time);
@@ -11,7 +13,7 @@ async function deleteTime(req, res) {
     }
 }
 
-async function postTime(req, res) {
+async function postTime(req : Request, res : Response) {
     try {
         const time = await Time.create(req.body.time);
         res.status(201).json(time);

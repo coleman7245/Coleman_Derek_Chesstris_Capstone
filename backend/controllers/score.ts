@@ -1,6 +1,8 @@
-import Score from '../models/Score.js';
+import { Request, Response } from 'express';
 
-async function getScores(req, res) {
+import Score from '../models/Score.ts';
+
+async function getScores(res : Response) {
     try {
         const scores = await Score.find();
         res.status(200).json(scores);
@@ -11,7 +13,7 @@ async function getScores(req, res) {
     }
 }
 
-async function deleteScore(req, res) {
+async function deleteScore(req : Request, res : Response) {
     try {
         const score = await Score.deleteMany({player_name : req.params.name});
         res.status(200).json(score);
@@ -22,7 +24,7 @@ async function deleteScore(req, res) {
     }
 }
 
-async function postScore(req, res) {
+async function postScore(req : Request, res : Response) {
     try {
         const score = await Score.create(req.body.score);
         res.status(201).json(score);

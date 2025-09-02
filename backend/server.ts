@@ -2,11 +2,11 @@ import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
 
-import connectDB from './db.js';
+import connectDB from './db.ts';
 
-import PlayerRoute from './routes/PlayerRoute.js';
-import ScoreRoute from './routes/ScoreRoute.js';
-import TimeRoute from './routes/TimeRoute.js';
+import PlayerRoute from './routes/PlayerRoute.ts';
+import ScoreRoute from './routes/ScoreRoute.ts';
+import TimeRoute from './routes/TimeRoute.ts';
 
 const app = express();
 

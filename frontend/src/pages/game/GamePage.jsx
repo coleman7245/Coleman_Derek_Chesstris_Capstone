@@ -6,7 +6,6 @@ import './GamePage.css';
 import Navbar from '../../shared_components/Navbar.jsx';
 import Board from './Board.jsx';
 import GameInfo from './GameInfo.jsx';
-import Form from '../../shared_components/Form.jsx';
 
 import { Game_Phase } from '../../utilities.js';
 import { GameContext } from '../../App.jsx';

@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { GameContext } from '../App.jsx';
+import { GameContext } from '../App.tsx';
 
 import './Navbar.css';
 
 function Navbar() {
-    const [gameState, dispatch] = useContext(GameContext);
+    const [gameState] = useContext(GameContext);
 
     return (
         <div className='navbar'>

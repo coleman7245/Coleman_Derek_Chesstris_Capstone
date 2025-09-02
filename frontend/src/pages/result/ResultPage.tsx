@@ -1,9 +1,9 @@
 import './ResultPage.css';
 
-import Navbar from '../../shared_components/Navbar.jsx';
-import ContinueBox from './ContinueBox.jsx';
-import SaveBox from './SaveBox.jsx';
-import DeleteBox from './DeleteBox.jsx';
+import Navbar from '../../shared_components/Navbar.tsx';
+import ContinueBox from './ContinueBox.tsx';
+import SaveBox from './SaveBox.tsx';
+import DeleteBox from './DeleteBox.tsx';
 
 function ResultPage({message}) {
     return (

@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module":"commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true
+  },
+  "files": [
+   "server.ts",
+   "./controllers/player.ts",
+   "./controllers/score.ts",
+   "./controllers/time.ts",
+   "./models/CurrentGame.ts",
+   "./models/Player.ts",
+   "./models/Score.ts",
+   "./models/Time.ts",
+   "./routes/PlayerRoute.ts",
+   "./routes/ScoreRoute.ts",
+   "./routes/TimeRoute.ts",
+   "db.ts"
+  ]
+}

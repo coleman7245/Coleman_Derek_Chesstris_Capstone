@@ -1,5 +1,42 @@
-function calculateTBlockRotation(orientation) {
-    let newPositions = {};
+type BlockPositions = {
+  first_block : Position,
+  second_block : Position,
+  third_block : Position,
+  main_block : Position
+}
+
+type Position = {
+  top : number,
+  left : number
+}
+
+type StartPositions = {
+  first_block: Position,
+  second_block: Position,
+  third_block: Position,
+  main_block: Position,
+  default_position: Array<number>
+}
+
+function calculateTBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -33,8 +70,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateLBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateLBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -68,8 +122,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateReverseLBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateReverseLBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -103,8 +174,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateSquigglyBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateSquigglyBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -138,8 +226,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateReverseSquigglyBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateReverseSquigglyBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -173,8 +278,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateSquareBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateSquareBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -208,8 +330,25 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  function calculateLineBlockRotation(orientation) {
-    let newPositions = {};
+  function calculateLineBlockRotation(orientation : number) : BlockPositions {
+    let newPositions : BlockPositions = {
+      first_block : {
+        top : 0,
+        left : 0,
+      },
+      second_block : {
+        top : 0,
+        left : 0,
+      },
+      third_block : {
+        top : 0,
+        left : 0,
+      },
+      main_block : {
+        top : 0,
+        left : 0,
+      }
+    };
   
     switch (orientation) {
       case 0:
@@ -243,7 +382,7 @@ function calculateTBlockRotation(orientation) {
     return newPositions;
   }
   
-  const tBlockStartPositions = {
+  const tBlockStartPositions : StartPositions = {
     first_block: { top: 0, left: 30 },
     second_block: { top: 0, left: -30 },
     third_block: { top: 30, left: 0 },
@@ -251,7 +390,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const lBlockStartPositions = {
+  const lBlockStartPositions : StartPositions = {
     first_block: { top: 30, left: -15 },
     second_block: { top: 0, left: -15 },
     third_block: { top: -30, left: -15 },
@@ -259,7 +398,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const reverseLBlockStartPositions = {
+  const reverseLBlockStartPositions : StartPositions = {
     first_block: { top: 30, left: 15 },
     second_block: { top: 0, left: 15 },
     third_block: { top: -30, left: 15 },
@@ -267,7 +406,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const squigglyBlockStartPositions = {
+  const squigglyBlockStartPositions : StartPositions = {
     first_block: { top: 15, left: 0 },
     second_block: { top: -15, left: 0 },
     third_block: { top: -15, left: 30 },
@@ -275,7 +414,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const reverseSquigglyBlockStartPositions = {
+  const reverseSquigglyBlockStartPositions : StartPositions = {
     first_block: { top: 15, left: 0 },
     second_block: { top: -15, left: 0 },
     third_block: { top: -15, left: -30 },
@@ -283,7 +422,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const squareBlockStartPositions = {
+  const squareBlockStartPositions : StartPositions = {
     first_block: { top: -15, left: -15 },
     second_block: { top: 15, left: -15 },
     third_block: { top: 15, left: 15 },
@@ -291,7 +430,7 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
   
-  const lineBlockStartPositions = {
+  const lineBlockStartPositions : StartPositions = {
     first_block : { top: 0, left: -15 },
     second_block : { top: 0, left: 15 },
     third_block : { top: 0, left: 45 },
@@ -299,11 +438,18 @@ function calculateTBlockRotation(orientation) {
     default_position: [135, 30]
   };
 
-  function createBlockConfig(type) {
-    let config = {};
+  type BlockConfiguration = {
+    position: Array<number>,
+    group_positions: StartPositions,
+    orientation: number,
+    rotate_function: Function
+  }
+
+  function createBlockConfig(type : string) : BlockConfiguration | null {
+    let config : BlockConfiguration;
 
     switch(type) {
-      case 'tBlock':
+      case 't':
         config = {
           position: tBlockStartPositions.default_position,
           group_positions: tBlockStartPositions,
@@ -311,7 +457,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateTBlockRotation
         };
         break;
-      case 'squigglyBlock':
+      case 'squiggly':
         config = {
           position: squigglyBlockStartPositions.default_position,
           group_positions: squigglyBlockStartPositions,
@@ -319,7 +465,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateSquigglyBlockRotation
         };
         break;
-      case 'reverseSquigglyBlock':
+      case 'reverseSquiggly':
         config = {
           position: reverseSquigglyBlockStartPositions.default_position,
           group_positions: reverseSquigglyBlockStartPositions,
@@ -327,7 +473,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateReverseSquigglyBlockRotation
         };
         break;
-      case 'lBlock':
+      case 'l':
         config = {
           position: lBlockStartPositions.default_position,
           group_positions: lBlockStartPositions,
@@ -335,7 +481,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateLBlockRotation
         };
         break;
-      case 'reverseLBlock':
+      case 'reverseL':
         config = {
           position: reverseLBlockStartPositions.default_position,
           group_positions: reverseLBlockStartPositions,
@@ -343,7 +489,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateReverseLBlockRotation
         };
         break;
-      case 'squareBlock':
+      case 'square':
         config = {
           position: squareBlockStartPositions.default_position,
           group_positions: squareBlockStartPositions,
@@ -351,7 +497,7 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateSquareBlockRotation
         };
         break;
-      case 'lineBlock':
+      case 'line':
         config = {
           position: lineBlockStartPositions.default_position,
           group_positions: lineBlockStartPositions,
@@ -359,6 +505,8 @@ function calculateTBlockRotation(orientation) {
           rotate_function: calculateLineBlockRotation
         };
         break;
+      default:
+        return null;
     }
 
     return config;

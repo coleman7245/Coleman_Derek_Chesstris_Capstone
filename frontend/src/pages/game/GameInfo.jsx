@@ -5,7 +5,7 @@ import { GameContext } from '../../App.jsx';
 import './GameInfo.css';
 
 function GameInfo() {
-    const [gameState, dispatch] = useContext(GameContext);
+    const [gameState] = useContext(GameContext);
 
     return (
         <div className='gameinfo'>
