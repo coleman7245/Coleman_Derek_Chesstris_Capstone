@@ -4,6 +4,12 @@ type Player = {
     scores : Array<number>
 }
 
+type Score = {
+    score : number,
+    player_name : string,
+    game_id : string
+};
+
 type Action = {
     type : string,
     player : Player,
@@ -135,4 +141,4 @@ const tetris_block_types = [
     'line'
 ];
 
-export { WinState, State, Time, Player, Action, GameState, initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 
+export { WinState, State, Time, Player, Score, Action, GameState, initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 
