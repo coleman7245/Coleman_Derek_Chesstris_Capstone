@@ -51,9 +51,9 @@
     "Navbar.tsx",
     "Form.tsx",
     "RulesPage.tsx",
-    "Result.tsx",
+    "ResultPage.tsx",
     "SaveBox.tsx",
     "RulesPage.tsx",
-    
+    "DeleteBox.tsx",
   ]
 }

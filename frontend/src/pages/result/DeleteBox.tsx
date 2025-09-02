@@ -2,32 +2,27 @@ import { useState, useContext } from 'react';
 
 import './DeleteBox.css';
 
-import { GameContext } from '../../App.jsx';
+import { GameContext } from '../../App.tsx';
 
 function DeleteBox() {
     const [isDeleted, setIsDeleted] = useState(false);
     const [gameState] = useContext(GameContext);
 
-    const data = {
-        score : {player_name : gameState.player_name, score : gameState.score},
-        time : {player_name : gameState.player_name, time : gameState.finishTime}
-    };
-
-    async function handleDelete(route, name) {
+    async function handleDelete(url : string, name : string) {
         try {
-            const player = await fetch(route + `/players/${name}`,
+            await fetch(url + `/players/${name}`,
                 {
                     method : 'DELETE'
                 }
             )
 
-            const score = await fetch(route + `/scores/${name}`, 
+            await fetch(url + `/scores/${name}`, 
                 {
                     method : 'DELETE'
                 }
             );
 
-            const time = await fetch(route + `/times/${name}`, 
+            await fetch(url + `/times/${name}`, 
                 {
                     method : 'DELETE'
                 }
