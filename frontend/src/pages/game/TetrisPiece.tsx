@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useContext } from 'react';
 
 import './TetrisPiece.css';
-import { createBlockConfig, BlockConfiguration, PositionLimit } from '../../tetris_block_moves.js';
+import { createBlockConfig, BlockConfiguration, PositionLimit } from '../../tetris_block_moves.ts';
 
-import { GameContext } from '../../App.jsx';
-import { Game_Phase } from '../../utilities.js';
+import { GameContext } from '../../App.tsx';
+import { Game_Phase } from '../../utilities.ts';
 
 function TetrisPiece({sources, type}) {
     const defaultConfig : BlockConfiguration | null = createBlockConfig(type);
