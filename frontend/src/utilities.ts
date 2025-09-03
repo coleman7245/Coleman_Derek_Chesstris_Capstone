@@ -83,7 +83,7 @@ const initialGameState : GameState = {
     default_block_position: []
 }
 
-async function getCurrentGame(dispatch : Function) : Promise<any> {
+async function getCurrentGame(dispatch : Function) : Promise<void> {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -94,7 +94,7 @@ async function getCurrentGame(dispatch : Function) : Promise<any> {
     }
 }
 
-async function saveCurrentGame(dispatch : Function) {
+async function saveCurrentGame(dispatch : Function) : Promise<void> {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -105,7 +105,7 @@ async function saveCurrentGame(dispatch : Function) {
     }
 }
 
-async function overrideCurrentGame(dispatch : Function) {
+async function overrideCurrentGame(dispatch : Function) : Promise<void> {
     try {
         const response = await fetch('');
         const result = await response.json();
@@ -116,7 +116,22 @@ async function overrideCurrentGame(dispatch : Function) {
     }
 }
 
-const chess_piece_images = {
+type ChessPieceImages = {
+    'black_bishop': string,
+    'black_king' : string,
+    'black_knight': string,
+    'black_pawn' : string,
+    'black_queen' : string,
+    'black_rook' : string,
+    'white_bishop' : string,
+    'white_king' : string,
+    'white_knight' : string,
+    'white_pawn' : string,
+    'white_queen' : string,
+    'white_rook' : string
+}
+
+const chess_piece_images : ChessPieceImages = {
     'black_bishop': '/src/assets/images/chess_black_bishop.png',
     'black_king' : '/src/assets/images/chess_black_king.png',
     'black_knight': '/src/assets/images/chess_black_knight.png',
@@ -131,7 +146,7 @@ const chess_piece_images = {
     'white_rook' : '/src/assets/images/chess_white_rook.png'
 };
 
-const tetris_block_types = [
+const tetris_block_types : Array<string> = [
     't',
     'squiggly',
     'reverseSquiggly',
@@ -141,4 +156,4 @@ const tetris_block_types = [
     'line'
 ];
 
-export { WinState, State, Time, Player, Score, Action, GameState, initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 
+export { ChessPieceImages, WinState, State, Time, Player, Score, Action, GameState, initialGameState, Game_Phase, getCurrentGame, saveCurrentGame, overrideCurrentGame, chess_piece_images, tetris_block_types }; 
