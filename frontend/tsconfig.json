@@ -60,7 +60,7 @@
     "RankingsList.tsx",
     "HomePage.tsx",
     "Login.tsx",
-    "./assets/images/chess_homepage_image.jpg",
+    "GamePage.tsx",
     "",
     "",
     "",

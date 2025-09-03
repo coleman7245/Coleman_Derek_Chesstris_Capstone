@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 import './GamePage.css';
 
-import Navbar from '../../shared_components/Navbar.jsx';
-import Board from './Board.jsx';
-import GameInfo from './GameInfo.jsx';
+import Navbar from '../../shared_components/Navbar.tsx';
+import Board from './Board.tsx';
+import GameInfo from './GameInfo.tsx';
 
-import { Game_Phase } from '../../utilities.js';
-import { GameContext } from '../../App.jsx';
+import { Game_Phase } from '../../utilities.ts';
+import { GameContext } from '../../App.tsx';
 
 function GamePage() {
     const [gameState, dispatch] = useContext(GameContext);
