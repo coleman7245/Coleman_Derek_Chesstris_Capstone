@@ -1,6 +1,6 @@
 import './AboutPage.css';
 
-import Navbar from '../../shared_components/Navbar.jsx';
+import Navbar from '../../shared_components/Navbar.tsx';
 
 function AboutPage() {
     return (

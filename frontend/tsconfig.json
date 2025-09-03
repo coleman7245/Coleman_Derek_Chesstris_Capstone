@@ -63,10 +63,6 @@
     "GamePage.tsx",
     "GameInfo.tsx",
     "Board.tsx",
-    "",
-    "",
-    "",
-    "",
-    "",
+    "AboutPage.tsx"
   ]
 }
