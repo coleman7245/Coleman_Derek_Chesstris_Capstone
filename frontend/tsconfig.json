@@ -57,6 +57,16 @@
     "DeleteBox.tsx",
     "ContinueBox.tsx",
     "RankingsPage.tsx",
-    "RankingsList.tsx"
+    "RankingsList.tsx",
+    "HomePage.tsx",
+    "Login.tsx",
+    "./assets/images/chess_homepage_image.jpg",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ]
 }

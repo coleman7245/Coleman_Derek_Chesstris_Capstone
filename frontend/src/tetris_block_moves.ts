@@ -18,6 +18,20 @@ type StartPositions = {
   default_position: Array<number>
 }
 
+type PositionLimit = {
+  minX: number, 
+  minY: number, 
+  maxX: number, 
+  maxY: number
+}
+
+type BlockConfiguration = {
+  position: Array<number>,
+  group_positions: StartPositions,
+  orientation: number,
+  rotate_function: Function
+}
+
 function calculateTBlockRotation(orientation : number) : BlockPositions {
     let newPositions : BlockPositions = {
       first_block : {
@@ -438,13 +452,6 @@ function calculateTBlockRotation(orientation : number) : BlockPositions {
     default_position: [135, 30]
   };
 
-  type BlockConfiguration = {
-    position: Array<number>,
-    group_positions: StartPositions,
-    orientation: number,
-    rotate_function: Function
-  }
-
   function createBlockConfig(type : string) : BlockConfiguration | null {
     let config : BlockConfiguration;
 
@@ -512,4 +519,4 @@ function calculateTBlockRotation(orientation : number) : BlockPositions {
     return config;
   }
 
-  export { createBlockConfig };
+  export { createBlockConfig, BlockConfiguration, PositionLimit };
